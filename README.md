@@ -9,4 +9,10 @@
 
 ## General TODO
 
+- [ ] Keychain
+- [ ] TouchId + FaceId
+- [ ] Import key
+- [ ] Export key
+
+## Late TODO
 - [ ] Update to 0.61 and use decorators
