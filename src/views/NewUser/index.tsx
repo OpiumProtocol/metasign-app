@@ -5,6 +5,7 @@ import {
   View,
   Text,
   StatusBar,
+  InteractionManager,
 } from 'react-native'
 import { Navigation } from 'react-native-navigation'
 import { inject, observer } from 'mobx-react'
@@ -20,10 +21,26 @@ import { ViewProps } from '../../utils/views'
 import { translate } from '../../constants/i18n'
 import { colors } from '../../constants/colors'
 import { sizes } from '../../constants/sizes'
+import engine from '../../utils/engine/'
 
 class NewUser extends React.Component<ViewProps> {
-  handleSavedThePhrase() {
-    goToHistory()
+  state = {
+    seed: ''
+  }
+
+  componentDidMount() {
+    InteractionManager.runAfterInteractions(async () => {
+      const seed = await engine.newVault()
+      this.setState({ seed })
+    })
+  }
+
+  handleSavedThePhrase = () => {
+    InteractionManager.runAfterInteractions(async () => {
+      await engine.restoreVault(this.state.seed)
+      this.props.store.settings.setLoggedIn(true)
+      goToHistory()
+    })
   }
 
   render() {
@@ -44,7 +61,7 @@ class NewUser extends React.Component<ViewProps> {
             </View>
             <View style={styles.widthed}>
               <View style={styles.seedPhraseBox}>
-                <Text>trial afford eyebrow trial cheese notable want eyebrow scheme afford blouse want</Text>
+                <Text>{this.state.seed}</Text>
               </View>
               <Button
                 text={translate('NewUser.savedThePhrase')}

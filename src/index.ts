@@ -1,4 +1,6 @@
+import { AsyncStorage } from 'react-native'
 import { Navigation } from 'react-native-navigation'
+import { persist } from 'mst-persist'
 
 // Views
 import App from './views/First'
@@ -16,8 +18,8 @@ import store from './stores'
 
 // Utils
 import { screenWrapper } from './utils/screens'
-import { goToFirstScreen } from './utils/navigation';
-import gaba from './utils/gaba';
+import { goToFirstScreen, goToHistory } from './utils/navigation'
+import engine from './utils/engine/'
 
 const registerScreens = () => {
   Navigation.registerComponent(Screens.SCREEN_FIRST, () => screenWrapper(App, store), () => App)
@@ -27,15 +29,43 @@ const registerScreens = () => {
   Navigation.registerComponent(Screens.SCREEN_SCAN, () => screenWrapper(Scan, store), () => Scan)
   Navigation.registerComponent(Screens.SCREEN_CONFIRMATION, () => screenWrapper(Confirmation, store), () => Confirmation)
 }
-
-registerScreens()
-
-// Navigation.setDefaultOptions({
-//   bac
-// })
-
+ 
 Navigation.events().registerAppLaunchedListener(async () => {
-  // TODO: Make auth and transfer accordingly
-  goToFirstScreen()
-  gaba.init()
+  // ********** STORAGE PERSISTANCE AND LOGIC ********** 
+  // Register persistent storage
+  // await AsyncStorage.clear()
+  await persist('@AppStore', store, {
+    storage: AsyncStorage,
+    jsonify: true
+  })
+
+  // Hydrated, initialize Engine from state
+  let engineInitialized = false
+  engine.init(store.engine)
+
+  if (engine.controller) {
+    engine.controller.subscribe(() => {
+      if (!engineInitialized) {
+        store.engine.setStore(engine.state)
+        engineInitialized = true
+      }
+    })
+    engine.controller.context.KeyringController.subscribe(() => {
+      store.engine.setController('KeyringController', engine.state.KeyringController)
+    })
+  }
+  
+  // ********** REGISTER SCREENS ********** 
+  registerScreens()
+
+  // ********** REDIRECT LOGIC **********
+  if (!store.settings.loggedIn) {
+    goToFirstScreen()
+  } else {
+    // Unlock wallet
+    await engine.unlockUser()
+
+    // Go to history
+    goToHistory()
+  }
 })

@@ -71,7 +71,13 @@ export const goToHistory = () => {
               topBar: {
                 title: {
                   text: translate('History.title')
-                }
+                },
+                rightButtons: [
+                  {
+                    id: 'logoutButton',
+                    text: translate('History.logout')
+                  }
+                ]
               }
             }
           },

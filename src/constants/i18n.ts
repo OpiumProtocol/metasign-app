@@ -40,7 +40,8 @@ export const translations = {
       status: 'Status',
       confirmed: 'Confirmed',
       rejected: 'Rejected',
-      listEmpty: 'The list is empty'
+      listEmpty: 'The list is empty',
+      logout: 'Log out'
     },
     Confirmation: {
       title: 'Confirmation',

@@ -6,10 +6,11 @@ import { Language, translations, translate } from '../../constants/i18n'
 
 i18n.translations = translations
 
-const Settings = t
+const SettingsStore = t
   .model('Settings', {
     theme: t.enumeration<Theme>('Theme', Object.values(Theme)),
     language: t.enumeration<Language>('Language', Object.values(Language)),
+    loggedIn: t.boolean,
   })
   .actions(self => ({
     afterCreate() {
@@ -19,9 +20,13 @@ const Settings = t
 
       // set i18n-js config
       i18n.locale = self.language
+    },
+
+    setLoggedIn(loggedIn: boolean) {
+      self.loggedIn = loggedIn
     }
   }))
 
-export default Settings
+export default SettingsStore
 
-export interface ISettingsStore extends Instance<typeof Settings> {}
+export interface ISettingsStore extends Instance<typeof SettingsStore> {}

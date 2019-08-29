@@ -95,6 +95,8 @@ PODS:
     - React-fishhook (= 0.60.4)
   - ReactNativeNavigation (3.0.0-alpha.11-snapshot.451):
     - React
+  - RNKeychain (3.1.3):
+    - React
   - RNLocalize (1.1.4):
     - React
   - yoga (0.60.4.React)
@@ -125,6 +127,7 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - React-RCTWebSocket (from `../node_modules/react-native/Libraries/WebSocket`)
   - ReactNativeNavigation (from `../node_modules/react-native-navigation`)
+  - RNKeychain (from `../node_modules/react-native-keychain`)
   - RNLocalize (from `../node_modules/react-native-localize`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -183,6 +186,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/WebSocket"
   ReactNativeNavigation:
     :path: "../node_modules/react-native-navigation"
+  RNKeychain:
+    :path: "../node_modules/react-native-keychain"
   RNLocalize:
     :path: "../node_modules/react-native-localize"
   yoga:
@@ -215,6 +220,7 @@ SPEC CHECKSUMS:
   React-RCTVibration: 0bea40cd51bd089bd591a8f74c86e91fdf2666c5
   React-RCTWebSocket: 163873f4cdd5f1058a9483443404fc3801581cb6
   ReactNativeNavigation: bfbcf2f34e04ce80a8df1be1f34f73d753ac3eae
+  RNKeychain: c658833a9cb2cbcba6423bdd6e16cce59e27da0e
   RNLocalize: a91e036a6abc46e656a989456701182e0e228c7a
   yoga: c2c050f6ae6e222534760cc82f559b89214b67e2
 

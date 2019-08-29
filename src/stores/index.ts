@@ -2,24 +2,28 @@ import { types as t, Instance } from 'mobx-state-tree'
 import * as RNLocalize from 'react-native-localize'
 
 // Models
-import Settings from './settings/'
-import History from './history/'
+import SettingsStore from './settings/'
+import HistoryStore from './history/'
+import EngineStore from './engine/'
 
 // Constants
 import { Theme } from '../constants/colors'
 import { Language } from '../constants/i18n'
-import { SignatureStatus } from '../constants/statuses'
 
 const AppStore = t.
   model('AppStore', {
-    settings: t.optional(Settings, {
+    settings: t.optional(SettingsStore, {
       theme: Theme.LIGHT,
       language: Language[RNLocalize.getLocales()[0].languageCode],
+      loggedIn: false
     }),
-    history: t.optional(History, {
+    history: t.optional(HistoryStore, {
       data: []
-    })
+    }),
+    engine: t.optional(EngineStore, {})
   })
+  .actions(self => ({
+  }))
 
 export default AppStore.create({})
 

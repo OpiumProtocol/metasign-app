@@ -11,7 +11,7 @@ import { SignatureStatus } from '../../constants/statuses'
 
 i18n.translations = translations
 
-const History = t
+const HistoryStore = t
   .model('History', {
     data: t.array(HistoryData)
   })
@@ -25,6 +25,6 @@ const History = t
     }
   }))
 
-export default History
+export default HistoryStore
 
-export interface IHistoryStore extends Instance<typeof History> {}
+export interface IHistoryStore extends Instance<typeof HistoryStore> {}

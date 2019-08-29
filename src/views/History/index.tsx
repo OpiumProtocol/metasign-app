@@ -16,7 +16,8 @@ import moment from 'moment'
 
 // Utils
 import { ViewProps } from '../../utils/views'
-import { goToScan } from '../../utils/navigation'
+import { goToScan, goToFirstScreen } from '../../utils/navigation'
+import engine from '../../utils/engine'
 
 // Components
 import Button from '../../components/Button'
@@ -35,6 +36,19 @@ interface RenderItemArgs {
 }
 
 class History extends React.Component<ViewProps> {
+  constructor(props: ViewProps) {
+    super(props)
+    Navigation.events().bindComponent(this)
+  }
+
+  navigationButtonPressed({ buttonId }) {
+    if (buttonId === 'logoutButton') {
+      // Make good logout
+      this.props.store.settings.setLoggedIn(false)
+      goToFirstScreen()
+    }
+  }
+
   handleLinkPress = (link: string) => () => {
     Linking.openURL(`https://${link}`)
   }
