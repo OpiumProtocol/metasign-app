@@ -17,7 +17,6 @@ import moment from 'moment'
 // Utils
 import { ViewProps } from '../../utils/views'
 import { goToScan, goToFirstScreen } from '../../utils/navigation'
-import engine from '../../utils/engine'
 
 // Components
 import Button from '../../components/Button'
@@ -138,6 +137,7 @@ class History extends React.Component<ViewProps> {
             />
             <View style={styles.scan}>
               <Button
+                type={'circle'}
                 text={translate('general.scan')}
                 onPress={this.handleScanPress}
                 background={colors[theme].green}
@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
   },
   listEmpty: {
     height: '100%',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
     alignItems: 'center'
   }
 })

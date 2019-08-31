@@ -6,7 +6,6 @@ import {
   Text,
   StatusBar,
 } from 'react-native'
-import { Navigation } from 'react-native-navigation'
 import { inject, observer } from 'mobx-react'
 
 // Components
@@ -19,9 +18,7 @@ import { ViewProps } from '../../utils/views'
 // Constants
 import { translate } from '../../constants/i18n'
 import { colors } from '../../constants/colors'
-import * as Screens from '../../constants/screenIds'
 import { sizes } from '../../constants/sizes'
-import engine from '../../utils/engine'
 
 class First extends React.Component<ViewProps> {
   handleNewUser = async () => {

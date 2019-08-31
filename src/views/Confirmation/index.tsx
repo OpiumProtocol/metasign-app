@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment } from 'react'
 import {
   SafeAreaView,
   StyleSheet,
@@ -6,7 +6,6 @@ import {
   Text,
   StatusBar,
   TouchableOpacity,
-  NativeModules,
   Image,
   Linking,
   ScrollView
@@ -17,15 +16,16 @@ import { inject, observer } from 'mobx-react'
 import Button from '../../components/Button'
 
 // Utils
-import { goToNewUser, goToExistingUser, goToHistory } from '../../utils/navigation'
+import { goToHistory } from '../../utils/navigation'
 import { ViewProps } from '../../utils/views'
 
 // Constants
 import { translate } from '../../constants/i18n'
 import { colors, Theme } from '../../constants/colors'
-import * as Screens from '../../constants/screenIds'
 import { sizes } from '../../constants/sizes'
 import { SignatureStatus } from '../../constants/statuses'
+
+// Stores
 import { IHistoryData } from '../../stores/history/models/HistoryData'
 
 interface ProtocolDataProps {

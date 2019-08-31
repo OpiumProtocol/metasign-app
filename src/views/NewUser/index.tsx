@@ -7,7 +7,6 @@ import {
   StatusBar,
   InteractionManager,
 } from 'react-native'
-import { Navigation } from 'react-native-navigation'
 import { inject, observer } from 'mobx-react'
 
 // Components

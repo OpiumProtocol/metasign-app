@@ -55,7 +55,7 @@ class Engine {
     const biometryChoice = true
 
     if (biometryType) {
-      console.warn('HAS biometryType')
+      console.warn('HAS biometryType', biometryType)
       const authOptions = {
         accessControl: biometryChoice
           ? SecureKeychain.ACCESS_CONTROL.BIOMETRY_CURRENT_SET_OR_DEVICE_PASSCODE
