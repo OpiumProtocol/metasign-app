@@ -3,7 +3,8 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View
+  View,
+  ActivityIndicator,
 } from 'react-native'
 
 import { normalize } from '../../utils/size'
@@ -13,19 +14,18 @@ interface Props {
   text: String,
   background?: string,
   onPress: () => void,
-  type?: string
+  type?: string,
+  loading?: boolean
 }
 
-const Button = ({ text, onPress, background, type }: Props) => {
+const Button = ({ text, onPress, background, type, loading = false }: Props) => {
   const style = styles({ background, type })
   return (
     <TouchableOpacity
       onPress={onPress}
     >
-      <View
-        style={style.button}
-      >
-        <Text style={style.text}>{text}</Text>
+      <View style={style.button}>
+        <Text style={style.text}>{loading && <ActivityIndicator size="small" color="#ffffff" />} {text}</Text>
       </View>
     </TouchableOpacity>
   )
@@ -65,9 +65,9 @@ const styles = ({ background, type }: ButtonStyles) => {
           backgroundColor: background || colors.default.grey,
           borderRadius: normalize(10),
           paddingHorizontal: normalize(30),
-          paddingVertical: normalize(10),
+          paddingVertical: normalize(20),
           justifyContent: 'center',
-          alignItems: 'center'
+          alignItems: 'center',
         },
         text: {
           color: '#fff',

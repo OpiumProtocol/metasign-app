@@ -6,6 +6,10 @@ import SettingsStore from './settings/'
 import HistoryStore from './history/'
 import EngineStore from './engine/'
 
+// Screen models
+import NewUserScreenStore from '../views/NewUser/stores/NewUserScreen.store'
+import ExistingUserScreenStore from '../views/ExistingUser/stores/ExistingUserScreen.store'
+
 // Constants
 import { Theme } from '../constants/colors'
 import { Language } from '../constants/i18n'
@@ -20,7 +24,11 @@ const AppStore = t.
     history: t.optional(HistoryStore, {
       data: []
     }),
-    engine: t.optional(EngineStore, {})
+    engine: t.optional(EngineStore, {}),
+
+    // Screen models
+    newUserScreen: t.optional(NewUserScreenStore, {}),
+    existingUserScreen: t.optional(ExistingUserScreenStore, {}),
   })
   .actions(self => ({
   }))

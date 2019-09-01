@@ -6,8 +6,14 @@ import {
   Text,
   StatusBar,
   InteractionManager,
+  TextInput,
+  KeyboardAvoidingView,
+  Alert,
+  TouchableWithoutFeedback,
+  Keyboard,
 } from 'react-native'
 import { inject, observer } from 'mobx-react'
+import { observable } from 'mobx'
 
 // Components
 import Button from '../../components/Button'
@@ -15,50 +21,74 @@ import Button from '../../components/Button'
 // Utils
 import { goToHistory } from '../../utils/navigation'
 import { ViewProps } from '../../utils/views'
-import engine from '../../utils/engine'
 
 // Constants
 import { translate } from '../../constants/i18n'
 import { colors } from '../../constants/colors'
 import { sizes } from '../../constants/sizes'
+import SeedPhrase from '../../components/SeedPhrase'
 
 class ExistingUser extends React.Component<ViewProps> {
   state = {
-    seed: 'roast afford main fall cheese notable want eyebrow scheme direct blouse trial'
+    seed: ''
   }
 
+  @observable appStore = this.props.store
+  @observable screenStore = this.appStore.existingUserScreen
+
   handleImportAccount = () => {
+    if (this.screenStore.loading) {
+      return
+    }
+    
     InteractionManager.runAfterInteractions(async () => {
-      await engine.restoreVault(this.state.seed)
-      this.props.store.settings.setLoggedIn(true)
-      goToHistory()
+      try {
+        await this.screenStore.registerNewSeed(this.state.seed)
+        goToHistory()
+      } catch (e) {
+        Alert.alert(this.screenStore.error)
+      }
     })
   }
 
+  handleSeedChange = (seed: string) => {
+    this.setState({ seed })
+  }
+
   render() {
-    const { theme } = this.props.store.settings
+    const { theme } = this.appStore.settings
+    const { loading, error } = this.screenStore
     return (
       <Fragment>
         <StatusBar barStyle='dark-content' />
         <SafeAreaView>
-          <View
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+          <KeyboardAvoidingView
             style={styles.body}
+            behavior="padding" enabled
           >
-            <Text style={[styles.h1, styles.widthed]}>{translate('ExistingUser.welcome')}</Text>
-            <View style={styles.widthed}>
-              <Text>{translate('ExistingUser.text1')}</Text>
-            </View>
-            <View style={styles.widthed}>
-              <View style={styles.seedPhraseBox}>
-                <Text>{this.state.seed}</Text>
+              <Text style={[styles.h1, styles.widthed]}>{translate('ExistingUser.welcome')}</Text>
+              <View style={styles.widthed}>
+                <Text style={styles.text}>{translate('ExistingUser.text1')}</Text>
               </View>
-              <Button
-                text={translate('general.importAccount')}
-                background={colors[theme].green}
-                onPress={this.handleImportAccount}
-              />
-            </View>
-          </View>
+              <View style={styles.widthed}>
+                <SeedPhrase
+                  seed={this.state.seed}
+                  editable
+                  onChange={this.handleSeedChange}
+                  placeholder={translate('ExistingUser.placeholder')}
+                />
+              </View>
+              <View style={styles.widthed}>
+                <Button
+                  text={translate('general.importAccount')}
+                  background={colors[theme].blue}
+                  onPress={this.handleImportAccount}
+                  loading={loading}
+                />
+              </View>
+            </KeyboardAvoidingView>
+          </TouchableWithoutFeedback>
         </SafeAreaView>
       </Fragment>
     )
@@ -68,19 +98,18 @@ class ExistingUser extends React.Component<ViewProps> {
 const styles = StyleSheet.create({
   body: {
     alignItems: 'center',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-between',
     height: '100%',
   },
   h1: {
+    marginTop: sizes.margin.big,
     fontSize: sizes.fonts.h1
   },
-  seedPhraseBox: {
-    padding: sizes.padding.small,
-    backgroundColor: colors.default.grey,
-    marginBottom: sizes.margin.small,
-  },
   widthed: {
-    width: '70%'
+    width: '90%'
+  },
+  text: {
+    fontSize: sizes.fonts.normal
   }
 })
 

@@ -5,7 +5,10 @@ export enum Theme {
 
 export const colors = {
   default: {
-    grey: '#909596'
+    white: '#ffffff',
+    grey: '#909596',
+    lightGrey: '#b2b2b2',
+    black: '#000000',
   },
   [Theme.LIGHT]: {
     blue: '#00b9ff',

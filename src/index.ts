@@ -36,7 +36,12 @@ Navigation.events().registerAppLaunchedListener(async () => {
   // await AsyncStorage.clear()
   await persist('@AppStore', store, {
     storage: AsyncStorage,
-    jsonify: true
+    jsonify: true,
+    whitelist: [
+      'settings',
+      'history',
+      'engine'
+    ]
   })
 
   // Hydrated, initialize Engine from state
