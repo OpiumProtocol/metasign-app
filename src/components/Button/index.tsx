@@ -9,23 +9,33 @@ import {
 
 import { normalize } from '../../utils/size'
 import { colors } from '../../constants/colors'
+import { sizes } from '../../constants/sizes'
 
 interface Props {
   text: String,
   background?: string,
   onPress: () => void,
   type?: string,
-  loading?: boolean
+  loading?: boolean,
+  icon?: Element,
+  bold?: boolean
 }
 
-const Button = ({ text, onPress, background, type, loading = false }: Props) => {
-  const style = styles({ background, type })
+const Button = ({ text, onPress, background, type, loading = false, icon, bold = false }: Props) => {
+  const style = styles({ background, type, bold })
   return (
     <TouchableOpacity
       onPress={onPress}
     >
       <View style={style.button}>
-        <Text style={style.text}>{loading && <ActivityIndicator size="small" color="#ffffff" />} {text}</Text>
+        { icon &&
+          <View style={style.icon}>
+            { icon }
+          </View>
+        }
+        <Text style={style.text}>
+          {loading && <ActivityIndicator size="small" color="#ffffff" />} {text}
+        </Text>
       </View>
     </TouchableOpacity>
   )
@@ -33,14 +43,15 @@ const Button = ({ text, onPress, background, type, loading = false }: Props) => 
 
 interface ButtonStyles {
   background?: string,
-  type?: string
+  type?: string,
+  bold: boolean
 }
 
 const circleStyles = {
 
 }
 
-const styles = ({ background, type }: ButtonStyles) => {
+const styles = ({ background, type, bold }: ButtonStyles) => {
   switch (type) {
     case 'circle': 
       return StyleSheet.create({
@@ -57,6 +68,9 @@ const styles = ({ background, type }: ButtonStyles) => {
         text: {
           color: '#fff',
           fontSize: normalize(30)
+        },
+        icon: {
+
         }
       })
     default:
@@ -68,10 +82,15 @@ const styles = ({ background, type }: ButtonStyles) => {
           paddingVertical: normalize(20),
           justifyContent: 'center',
           alignItems: 'center',
+          flexDirection: 'row'
         },
         text: {
           color: '#fff',
-          fontSize: normalize(20)
+          fontSize: normalize(20),
+          fontWeight: bold ? 'bold' : 'normal'
+        },
+        icon: {
+          marginRight: sizes.margin.small
         }
       })
   }

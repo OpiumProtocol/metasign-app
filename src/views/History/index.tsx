@@ -21,6 +21,9 @@ import { goToScan, goToFirstScreen } from '../../utils/navigation'
 // Components
 import Button from '../../components/Button'
 
+// Assets
+import ScanIcon from '../../assets/images/scan.svg'
+
 // Constants
 import { translate } from '../../constants/i18n'
 import { colors, Theme } from '../../constants/colors'
@@ -137,10 +140,11 @@ class History extends React.Component<ViewProps> {
             />
             <View style={styles.scan}>
               <Button
-                type={'circle'}
                 text={translate('general.scan')}
+                icon={<ScanIcon width={25} height={25} fill={'#ffffff'} />}
                 onPress={this.handleScanPress}
                 background={colors[theme].green}
+                bold
               />
             </View>
           </View>
