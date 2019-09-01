@@ -47,10 +47,11 @@ export const translations = {
     },
     Confirmation: {
       title: 'Confirmation',
-      message: 'Message',
-      description: 'Provided description',
+      advancedData: 'Advanced data',
+      description: 'Description provided by',
       reject: 'REJECT',
       confirm: 'CONFIRM',
+      explanation: 'Your signature is needed for',
     }
   },
 }

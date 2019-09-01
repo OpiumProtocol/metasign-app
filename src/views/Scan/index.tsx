@@ -2,7 +2,8 @@ import React, { Fragment } from 'react'
 import {
   SafeAreaView,
   StyleSheet,
-  StatusBar
+  StatusBar,
+  Vibration
 } from 'react-native'
 import { inject, observer } from 'mobx-react'
 import { RNCamera } from 'react-native-camera'
@@ -42,6 +43,7 @@ class Scan extends React.Component<ViewProps> {
     }
 
     this.setProcessing(true)
+    Vibration.vibrate(250)
     fetch(event.data)
       .then(res => res.json())
       .then(data => goToConfirmation(this.props.componentId, data))

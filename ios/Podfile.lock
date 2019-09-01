@@ -99,6 +99,8 @@ PODS:
     - React
   - RNLocalize (1.1.4):
     - React
+  - RNReactNativeHapticFeedback (1.8.2):
+    - React
   - RNSVG (9.8.1):
     - React
   - yoga (0.60.4.React)
@@ -131,6 +133,7 @@ DEPENDENCIES:
   - ReactNativeNavigation (from `../node_modules/react-native-navigation`)
   - RNKeychain (from `../node_modules/react-native-keychain`)
   - RNLocalize (from `../node_modules/react-native-localize`)
+  - RNReactNativeHapticFeedback (from `../node_modules/react-native-haptic-feedback`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -193,6 +196,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-keychain"
   RNLocalize:
     :path: "../node_modules/react-native-localize"
+  RNReactNativeHapticFeedback:
+    :path: "../node_modules/react-native-haptic-feedback"
   RNSVG:
     :path: "../node_modules/react-native-svg"
   yoga:
@@ -227,6 +232,7 @@ SPEC CHECKSUMS:
   ReactNativeNavigation: bfbcf2f34e04ce80a8df1be1f34f73d753ac3eae
   RNKeychain: c658833a9cb2cbcba6423bdd6e16cce59e27da0e
   RNLocalize: a91e036a6abc46e656a989456701182e0e228c7a
+  RNReactNativeHapticFeedback: e11a4da0ce174e9f88b03cbaf5d76d94633cdee2
   RNSVG: 1bf07c4638c2d7c4cb9a90c8964f72c3397300a6
   yoga: c2c050f6ae6e222534760cc82f559b89214b67e2
 
