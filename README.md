@@ -1,4 +1,4 @@
-# MetaStamp application
+# MetaSign application
 
 # Mockups
 ![Mockups](docs/mockup.jpg)

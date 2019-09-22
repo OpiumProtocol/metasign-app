@@ -20,7 +20,7 @@ export const translations = {
       clipboardSuccess: 'Copied to clipboard'
     },
     First: {
-      welcome: 'Welcome to MetaStamp.IO',
+      welcome: 'Welcome to MetaSign',
       labelNewUser: "Don't know what to do?",
       labelOldUser: "Already have seed phrase or private key?",
       iAmNew: "Create an account",

@@ -35,7 +35,7 @@ class Engine {
 
     const keyringController = <KeyringController> this.controller.context.KeyringController
     await keyringController.createNewVaultAndKeychain('');
-    await SecureKeychain.setGenericPassword('metastamp-user', '')
+    await SecureKeychain.setGenericPassword('metasign-user', '')
     const mnemonic = await keyringController.exportSeedPhrase('')
     const seed = JSON.stringify(mnemonic).replace(/"/g, '')
     return seed
@@ -62,7 +62,7 @@ class Engine {
           : SecureKeychain.ACCESS_CONTROL.DEVICE_PASSCODE
       }
 
-      await SecureKeychain.setGenericPassword('metastamp-user', password, authOptions)
+      await SecureKeychain.setGenericPassword('metasign-user', password, authOptions)
 
       if (!biometryChoice) {
         console.warn('HAS NO biometryChoice')

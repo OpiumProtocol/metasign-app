@@ -1,4 +1,4 @@
-package com.metastamp;
+package com.metasign;
 
 import android.app.Application;
 import android.util.Log;

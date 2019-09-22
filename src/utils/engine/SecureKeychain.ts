@@ -29,7 +29,7 @@ class SecureKeychain {
     this.helper = new EncryptionHelper(salt)
     this.initialized = true
     this.defaultOptions = {
-      service: 'io.metastamp.app',
+      service: 'org.metasign.app',
       // authenticationPromptTitle: translate('authentication.auth_prompt_title'),
       // authenticationPrompt: translate('authentication.auth_prompt_desc'),
       // authenticationPromptDesc: translate('authentication.auth_prompt_desc'),

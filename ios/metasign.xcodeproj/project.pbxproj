@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* metastampTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* metastampTests.m */; };
+		00E356F31AD99517003FC87E /* metasignTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* metasignTests.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		27A46D0A3E7F21E36D67B1DE /* libPods-metastamp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 369CF1EDA2A465AF2C9B0EA4 /* libPods-metastamp.a */; };
+		27A46D0A3E7F21E36D67B1DE /* libPods-metasign.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 369CF1EDA2A465AF2C9B0EA4 /* libPods-metasign.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		2DCD954D1E0B4F2C00145EB5 /* metastampTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* metastampTests.m */; };
-		84C5A104723864EDEC2F152D /* libPods-metastampTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD6573A03D5E8A8CE0813EC0 /* libPods-metastampTests.a */; };
-		B55A7A735DF13C9CB31D1E76 /* libPods-metastamp-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D80002178F45CF0B71E55246 /* libPods-metastamp-tvOSTests.a */; };
-		FF390875FA6C9FAE5CE0A4C3 /* libPods-metastamp-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A36BF0AABF6202119A28BB /* libPods-metastamp-tvOS.a */; };
+		2DCD954D1E0B4F2C00145EB5 /* metasignTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* metasignTests.m */; };
+		84C5A104723864EDEC2F152D /* libPods-metasignTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD6573A03D5E8A8CE0813EC0 /* libPods-metasignTests.a */; };
+		B55A7A735DF13C9CB31D1E76 /* libPods-metasign-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D80002178F45CF0B71E55246 /* libPods-metasign-tvOSTests.a */; };
+		FF390875FA6C9FAE5CE0A4C3 /* libPods-metasign-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A36BF0AABF6202119A28BB /* libPods-metasign-tvOS.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,45 +28,45 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = metastamp;
+			remoteInfo = metasign;
 		};
 		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
-			remoteInfo = "metastamp-tvOS";
+			remoteInfo = "metasign-tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* metastampTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = metastampTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* metasignTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = metasignTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* metastampTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = metastampTests.m; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* metastamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = metastamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = metastamp/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = metastamp/AppDelegate.m; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* metasignTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = metasignTests.m; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* metasign.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = metasign.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = metasign/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = metasign/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = metastamp/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = metastamp/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = metastamp/main.m; sourceTree = "<group>"; };
-		2D02E47B1E0B4A5D006451C7 /* metastamp-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "metastamp-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E4901E0B4A5D006451C7 /* metastamp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "metastamp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E9239683921572C2307F034 /* Pods-metastamp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-metastamp.debug.xcconfig"; path = "Target Support Files/Pods-metastamp/Pods-metastamp.debug.xcconfig"; sourceTree = "<group>"; };
-		369CF1EDA2A465AF2C9B0EA4 /* libPods-metastamp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-metastamp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		58B77DE10F363AA01DB6AC8F /* Pods-metastamp-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-metastamp-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-metastamp-tvOSTests/Pods-metastamp-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		64BE7BC471FA117309B9775A /* Pods-metastamp-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-metastamp-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-metastamp-tvOS/Pods-metastamp-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		885FEBF9D488A89DB800B9C6 /* Pods-metastamp-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-metastamp-tvOS.release.xcconfig"; path = "Target Support Files/Pods-metastamp-tvOS/Pods-metastamp-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		963F1A7113509C37A01FA6FB /* Pods-metastamp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-metastamp.release.xcconfig"; path = "Target Support Files/Pods-metastamp/Pods-metastamp.release.xcconfig"; sourceTree = "<group>"; };
-		A7A36BF0AABF6202119A28BB /* libPods-metastamp-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-metastamp-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD6573A03D5E8A8CE0813EC0 /* libPods-metastampTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-metastampTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D80002178F45CF0B71E55246 /* libPods-metastamp-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-metastamp-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = metasign/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = metasign/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = metasign/main.m; sourceTree = "<group>"; };
+		2D02E47B1E0B4A5D006451C7 /* metasign-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "metasign-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E4901E0B4A5D006451C7 /* metasign-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "metasign-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E9239683921572C2307F034 /* Pods-metasign.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-metasign.debug.xcconfig"; path = "Target Support Files/Pods-metasign/Pods-metasign.debug.xcconfig"; sourceTree = "<group>"; };
+		369CF1EDA2A465AF2C9B0EA4 /* libPods-metasign.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-metasign.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		58B77DE10F363AA01DB6AC8F /* Pods-metasign-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-metasign-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-metasign-tvOSTests/Pods-metasign-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		64BE7BC471FA117309B9775A /* Pods-metasign-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-metasign-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-metasign-tvOS/Pods-metasign-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		885FEBF9D488A89DB800B9C6 /* Pods-metasign-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-metasign-tvOS.release.xcconfig"; path = "Target Support Files/Pods-metasign-tvOS/Pods-metasign-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		963F1A7113509C37A01FA6FB /* Pods-metasign.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-metasign.release.xcconfig"; path = "Target Support Files/Pods-metasign/Pods-metasign.release.xcconfig"; sourceTree = "<group>"; };
+		A7A36BF0AABF6202119A28BB /* libPods-metasign-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-metasign-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD6573A03D5E8A8CE0813EC0 /* libPods-metasignTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-metasignTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D80002178F45CF0B71E55246 /* libPods-metasign-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-metasign-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		F3BE7681BC2917DE3550841C /* Pods-metastamp-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-metastamp-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-metastamp-tvOSTests/Pods-metastamp-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		F710C7B5B942BE2A33CA5448 /* Pods-metastampTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-metastampTests.release.xcconfig"; path = "Target Support Files/Pods-metastampTests/Pods-metastampTests.release.xcconfig"; sourceTree = "<group>"; };
-		F7AC86ADF8ECC79372A4D815 /* Pods-metastampTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-metastampTests.debug.xcconfig"; path = "Target Support Files/Pods-metastampTests/Pods-metastampTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F3BE7681BC2917DE3550841C /* Pods-metasign-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-metasign-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-metasign-tvOSTests/Pods-metasign-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F710C7B5B942BE2A33CA5448 /* Pods-metasignTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-metasignTests.release.xcconfig"; path = "Target Support Files/Pods-metasignTests/Pods-metasignTests.release.xcconfig"; sourceTree = "<group>"; };
+		F7AC86ADF8ECC79372A4D815 /* Pods-metasignTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-metasignTests.debug.xcconfig"; path = "Target Support Files/Pods-metasignTests/Pods-metasignTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84C5A104723864EDEC2F152D /* libPods-metastampTests.a in Frameworks */,
+				84C5A104723864EDEC2F152D /* libPods-metasignTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27A46D0A3E7F21E36D67B1DE /* libPods-metastamp.a in Frameworks */,
+				27A46D0A3E7F21E36D67B1DE /* libPods-metasign.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF390875FA6C9FAE5CE0A4C3 /* libPods-metastamp-tvOS.a in Frameworks */,
+				FF390875FA6C9FAE5CE0A4C3 /* libPods-metasign-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,20 +98,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B55A7A735DF13C9CB31D1E76 /* libPods-metastamp-tvOSTests.a in Frameworks */,
+				B55A7A735DF13C9CB31D1E76 /* libPods-metasign-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* metastampTests */ = {
+		00E356EF1AD99517003FC87E /* metasignTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* metastampTests.m */,
+				00E356F21AD99517003FC87E /* metasignTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = metastampTests;
+			path = metasignTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -122,7 +122,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* metastamp */ = {
+		13B07FAE1A68108700A75B9A /* metasign */ = {
 			isa = PBXGroup;
 			children = (
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -133,7 +133,7 @@
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = metastamp;
+			name = metasign;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -141,10 +141,10 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				369CF1EDA2A465AF2C9B0EA4 /* libPods-metastamp.a */,
-				A7A36BF0AABF6202119A28BB /* libPods-metastamp-tvOS.a */,
-				D80002178F45CF0B71E55246 /* libPods-metastamp-tvOSTests.a */,
-				BD6573A03D5E8A8CE0813EC0 /* libPods-metastampTests.a */,
+				369CF1EDA2A465AF2C9B0EA4 /* libPods-metasign.a */,
+				A7A36BF0AABF6202119A28BB /* libPods-metasign-tvOS.a */,
+				D80002178F45CF0B71E55246 /* libPods-metasign-tvOSTests.a */,
+				BD6573A03D5E8A8CE0813EC0 /* libPods-metasignTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -152,14 +152,14 @@
 		42D9CC0832FE9D7490308555 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2E9239683921572C2307F034 /* Pods-metastamp.debug.xcconfig */,
-				963F1A7113509C37A01FA6FB /* Pods-metastamp.release.xcconfig */,
-				64BE7BC471FA117309B9775A /* Pods-metastamp-tvOS.debug.xcconfig */,
-				885FEBF9D488A89DB800B9C6 /* Pods-metastamp-tvOS.release.xcconfig */,
-				F3BE7681BC2917DE3550841C /* Pods-metastamp-tvOSTests.debug.xcconfig */,
-				58B77DE10F363AA01DB6AC8F /* Pods-metastamp-tvOSTests.release.xcconfig */,
-				F7AC86ADF8ECC79372A4D815 /* Pods-metastampTests.debug.xcconfig */,
-				F710C7B5B942BE2A33CA5448 /* Pods-metastampTests.release.xcconfig */,
+				2E9239683921572C2307F034 /* Pods-metasign.debug.xcconfig */,
+				963F1A7113509C37A01FA6FB /* Pods-metasign.release.xcconfig */,
+				64BE7BC471FA117309B9775A /* Pods-metasign-tvOS.debug.xcconfig */,
+				885FEBF9D488A89DB800B9C6 /* Pods-metasign-tvOS.release.xcconfig */,
+				F3BE7681BC2917DE3550841C /* Pods-metasign-tvOSTests.debug.xcconfig */,
+				58B77DE10F363AA01DB6AC8F /* Pods-metasign-tvOSTests.release.xcconfig */,
+				F7AC86ADF8ECC79372A4D815 /* Pods-metasignTests.debug.xcconfig */,
+				F710C7B5B942BE2A33CA5448 /* Pods-metasignTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -174,9 +174,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* metastamp */,
+				13B07FAE1A68108700A75B9A /* metasign */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* metastampTests */,
+				00E356EF1AD99517003FC87E /* metasignTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				42D9CC0832FE9D7490308555 /* Pods */,
@@ -189,10 +189,10 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* metastamp.app */,
-				00E356EE1AD99517003FC87E /* metastampTests.xctest */,
-				2D02E47B1E0B4A5D006451C7 /* metastamp-tvOS.app */,
-				2D02E4901E0B4A5D006451C7 /* metastamp-tvOSTests.xctest */,
+				13B07F961A680F5B00A75B9A /* metasign.app */,
+				00E356EE1AD99517003FC87E /* metasignTests.xctest */,
+				2D02E47B1E0B4A5D006451C7 /* metasign-tvOS.app */,
+				2D02E4901E0B4A5D006451C7 /* metasign-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -200,9 +200,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* metastampTests */ = {
+		00E356ED1AD99517003FC87E /* metasignTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "metastampTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "metasignTests" */;
 			buildPhases = (
 				4DA033E39EA258712233182F /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -214,14 +214,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = metastampTests;
-			productName = metastampTests;
-			productReference = 00E356EE1AD99517003FC87E /* metastampTests.xctest */;
+			name = metasignTests;
+			productName = metasignTests;
+			productReference = 00E356EE1AD99517003FC87E /* metasignTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* metastamp */ = {
+		13B07F861A680F5B00A75B9A /* metasign */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "metastamp" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "metasign" */;
 			buildPhases = (
 				42D20EECE93F3A14EE55579B /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -234,14 +234,14 @@
 			);
 			dependencies = (
 			);
-			name = metastamp;
-			productName = metastamp;
-			productReference = 13B07F961A680F5B00A75B9A /* metastamp.app */;
+			name = metasign;
+			productName = metasign;
+			productReference = 13B07F961A680F5B00A75B9A /* metasign.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E47A1E0B4A5D006451C7 /* metastamp-tvOS */ = {
+		2D02E47A1E0B4A5D006451C7 /* metasign-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "metastamp-tvOS" */;
+			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "metasign-tvOS" */;
 			buildPhases = (
 				E660FA14A4B84A9C69AE0C4F /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
@@ -254,14 +254,14 @@
 			);
 			dependencies = (
 			);
-			name = "metastamp-tvOS";
-			productName = "metastamp-tvOS";
-			productReference = 2D02E47B1E0B4A5D006451C7 /* metastamp-tvOS.app */;
+			name = "metasign-tvOS";
+			productName = "metasign-tvOS";
+			productReference = 2D02E47B1E0B4A5D006451C7 /* metasign-tvOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E48F1E0B4A5D006451C7 /* metastamp-tvOSTests */ = {
+		2D02E48F1E0B4A5D006451C7 /* metasign-tvOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "metastamp-tvOSTests" */;
+			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "metasign-tvOSTests" */;
 			buildPhases = (
 				5B9613A284944921E325325C /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
@@ -273,9 +273,9 @@
 			dependencies = (
 				2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */,
 			);
-			name = "metastamp-tvOSTests";
-			productName = "metastamp-tvOSTests";
-			productReference = 2D02E4901E0B4A5D006451C7 /* metastamp-tvOSTests.xctest */;
+			name = "metasign-tvOSTests";
+			productName = "metasign-tvOSTests";
+			productReference = 2D02E4901E0B4A5D006451C7 /* metasign-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -307,7 +307,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "metastamp" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "metasign" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -321,10 +321,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* metastamp */,
-				00E356ED1AD99517003FC87E /* metastampTests */,
-				2D02E47A1E0B4A5D006451C7 /* metastamp-tvOS */,
-				2D02E48F1E0B4A5D006451C7 /* metastamp-tvOSTests */,
+				13B07F861A680F5B00A75B9A /* metasign */,
+				00E356ED1AD99517003FC87E /* metasignTests */,
+				2D02E47A1E0B4A5D006451C7 /* metasign-tvOS */,
+				2D02E48F1E0B4A5D006451C7 /* metasign-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -407,7 +407,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-metastamp-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-metasign-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -429,7 +429,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-metastampTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-metasignTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -451,7 +451,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-metastamp-tvOSTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-metasign-tvOSTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -473,7 +473,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-metastamp-tvOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-metasign-tvOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -525,7 +525,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* metastampTests.m in Sources */,
+				00E356F31AD99517003FC87E /* metasignTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,7 +551,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DCD954D1E0B4F2C00145EB5 /* metastampTests.m in Sources */,
+				2DCD954D1E0B4F2C00145EB5 /* metasignTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -560,12 +560,12 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* metastamp */;
+			target = 13B07F861A680F5B00A75B9A /* metasign */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 		2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2D02E47A1E0B4A5D006451C7 /* metastamp-tvOS */;
+			target = 2D02E47A1E0B4A5D006451C7 /* metasign-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -577,7 +577,7 @@
 				13B07FB21A68108700A75B9A /* Base */,
 			);
 			name = LaunchScreen.xib;
-			path = metastamp;
+			path = metasign;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -585,7 +585,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F7AC86ADF8ECC79372A4D815 /* Pods-metastampTests.debug.xcconfig */;
+			baseConfigurationReference = F7AC86ADF8ECC79372A4D815 /* Pods-metasignTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 645ZUKS36L;
@@ -593,7 +593,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = metastampTests/Info.plist;
+				INFOPLIST_FILE = metasignTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -603,18 +603,18 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/metastamp.app/metastamp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/metasign.app/metasign";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F710C7B5B942BE2A33CA5448 /* Pods-metastampTests.release.xcconfig */;
+			baseConfigurationReference = F710C7B5B942BE2A33CA5448 /* Pods-metasignTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = 645ZUKS36L;
-				INFOPLIST_FILE = metastampTests/Info.plist;
+				INFOPLIST_FILE = metasignTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -624,18 +624,18 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/metastamp.app/metastamp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/metasign.app/metasign";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2E9239683921572C2307F034 /* Pods-metastamp.debug.xcconfig */;
+			baseConfigurationReference = 2E9239683921572C2307F034 /* Pods-metasign.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 645ZUKS36L;
 				HEADER_SEARCH_PATHS = (
@@ -662,15 +662,16 @@
 					"\"${PODS_ROOT}/Headers/Public/glog\"",
 					"\"${PODS_ROOT}/Headers/Public/yoga\"",
 				);
-				INFOPLIST_FILE = metastamp/Info.plist;
+				INFOPLIST_FILE = metasign/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.2;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.metastamp.app;
-				PRODUCT_NAME = metastamp;
+				PRODUCT_BUNDLE_IDENTIFIER = org.metasign.app;
+				PRODUCT_NAME = metasign;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -678,12 +679,12 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 963F1A7113509C37A01FA6FB /* Pods-metastamp.release.xcconfig */;
+			baseConfigurationReference = 963F1A7113509C37A01FA6FB /* Pods-metasign.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 645ZUKS36L;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -709,15 +710,16 @@
 					"\"${PODS_ROOT}/Headers/Public/glog\"",
 					"\"${PODS_ROOT}/Headers/Public/yoga\"",
 				);
-				INFOPLIST_FILE = metastamp/Info.plist;
+				INFOPLIST_FILE = metasign/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.2;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.metastamp.app;
-				PRODUCT_NAME = metastamp;
+				PRODUCT_BUNDLE_IDENTIFIER = org.metasign.app;
+				PRODUCT_NAME = metasign;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -725,7 +727,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 64BE7BC471FA117309B9775A /* Pods-metastamp-tvOS.debug.xcconfig */;
+			baseConfigurationReference = 64BE7BC471FA117309B9775A /* Pods-metasign-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -736,14 +738,14 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "metastamp-tvOS/Info.plist";
+				INFOPLIST_FILE = "metasign-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.metastamp-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.metasign-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -753,7 +755,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 885FEBF9D488A89DB800B9C6 /* Pods-metastamp-tvOS.release.xcconfig */;
+			baseConfigurationReference = 885FEBF9D488A89DB800B9C6 /* Pods-metasign-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -764,14 +766,14 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "metastamp-tvOS/Info.plist";
+				INFOPLIST_FILE = "metasign-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.metastamp-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.metasign-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -781,7 +783,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F3BE7681BC2917DE3550841C /* Pods-metastamp-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = F3BE7681BC2917DE3550841C /* Pods-metasign-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -791,24 +793,24 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "metastamp-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "metasign-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.metastamp-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.metasign-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/metastamp-tvOS.app/metastamp-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/metasign-tvOS.app/metasign-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Debug;
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 58B77DE10F363AA01DB6AC8F /* Pods-metastamp-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = 58B77DE10F363AA01DB6AC8F /* Pods-metasign-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -818,17 +820,17 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "metastamp-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "metasign-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.metastamp-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.metasign-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/metastamp-tvOS.app/metastamp-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/metasign-tvOS.app/metasign-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Release;
@@ -935,7 +937,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "metastampTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "metasignTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -944,7 +946,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "metastamp" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "metasign" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -953,7 +955,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "metastamp-tvOS" */ = {
+		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "metasign-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4971E0B4A5E006451C7 /* Debug */,
@@ -962,7 +964,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "metastamp-tvOSTests" */ = {
+		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "metasign-tvOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4991E0B4A5E006451C7 /* Debug */,
@@ -971,7 +973,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "metastamp" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "metasign" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
