@@ -20,6 +20,7 @@ import Button from '../../components/Button'
 // Utils
 import { goToHistory } from '../../utils/navigation'
 import { ViewProps } from '../../utils/views'
+import engine from '../../utils/engine'
 
 // Constants
 import { translate } from '../../constants/i18n'
@@ -46,11 +47,15 @@ class Confirmation extends React.Component<ViewProps & ProtocolDataProps> {
       ignoreAndroidSystemSettings: true
     })
     if (status == SignatureStatus.confirmed) {
+      const signature = await engine.signTypedData({
+        from: engine.accounts[0],
+        data: JSON.stringify(data.data)
+      })
       const res = await fetch(data.hook, {
         method: 'POST',
         body: JSON.stringify({
           id: data.id,
-          signature: '0x13371488'
+          signature
         }),
         headers: {
           'Content-Type': 'application/json'

@@ -1,7 +1,8 @@
 import {
   ComposableController,
   PreferencesController,
-  KeyringController
+  KeyringController,
+  TypedMessageParams
 } from 'gaba'
 import { Platform } from 'react-native'
 
@@ -15,6 +16,7 @@ class Engine {
   controller: ComposableController | undefined
   initialized: boolean = false
   keyring: any
+  accounts: string[] = []
 
   init(initialState: IEngineStore) {
     this.controller = new ComposableController([
@@ -84,7 +86,14 @@ class Engine {
       await SecureKeychain.setGenericPassword('metamask-user', password)
     }
 
-    console.warn(await keyringController.getAccounts())
+    this.accounts = await keyringController.getAccounts()
+    console.warn(this.accounts)
+  }
+
+  async signTypedData(message: TypedMessageParams) {
+    const keyringController = this._KeyringController
+
+    return keyringController.signTypedMessage(message, 'V3')
   }
 
   async unlockUser() {
@@ -96,7 +105,8 @@ class Engine {
 
     const keyringController = <KeyringController> this.controller.context.KeyringController
     await keyringController.submitPassword(password)
-    console.warn(await keyringController.getAccounts())
+    this.accounts = await keyringController.getAccounts()
+    console.warn(this.accounts)
   }
 
   get _KeyringController() {
