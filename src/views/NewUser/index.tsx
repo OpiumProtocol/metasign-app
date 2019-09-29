@@ -25,6 +25,31 @@ import { ViewProps } from '../../utils/views'
 import { translate } from '../../constants/i18n'
 import { colors } from '../../constants/colors'
 import { sizes } from '../../constants/sizes'
+import {normalize} from "../../utils/size";
+
+
+const confirmButton = StyleSheet.create({
+  button: {
+    backgroundColor: colors['light'].blue,
+    paddingHorizontal: normalize(30),
+    paddingVertical: normalize(20),
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+    width: "100%",
+    height: normalize(56),
+  },
+  text: {
+    color: colors.default.white,
+    fontSize: normalize(16),
+    fontWeight: 'bold',
+    textAlign: "center",
+    width: "100%"
+  },
+  icon: {
+    marginRight: sizes.margin.small
+  }
+});
 
 class NewUser extends React.Component<ViewProps> {
   state = {
@@ -45,7 +70,7 @@ class NewUser extends React.Component<ViewProps> {
     if (this.screenStore.loading) {
       return
     }
-    
+
     InteractionManager.runAfterInteractions(async () => {
       try {
         await this.screenStore.registerNewSeed(this.state.seed)
@@ -60,7 +85,8 @@ class NewUser extends React.Component<ViewProps> {
     Clipboard.setString(this.state.seed)
     showMessage({
       message: translate('general.clipboardSuccess'),
-      type: 'info'
+      type: 'info',
+      backgroundColor: colors.light.confirmed
     })
   }
 
@@ -74,26 +100,29 @@ class NewUser extends React.Component<ViewProps> {
           <View
             style={styles.body}
           >
-            <Text style={[styles.h1, styles.widthed]}>{translate('NewUser.welcome')}</Text>
+            <Text style={[styles.header]}>{translate('NewUser.welcome')}</Text>
             <View style={styles.widthed}>
               <Text style={styles.text}>{translate('NewUser.text1')}</Text>
             </View>
             <View style={styles.widthed}>
-              <Text style={styles.text}>{translate('NewUser.text2')}</Text>
+              <SeedPhrase
+                  seed={this.state.seed}
+                  editable={false}
+                  onPress={this.handleSeedTouch}
+              />
             </View>
             <View style={styles.widthed}>
-              <SeedPhrase
-                seed={this.state.seed}
-                editable={false}
-                onPress={this.handleSeedTouch}
-              />
+              <Text style={styles.important}>{translate('NewUser.important')}</Text>
+            </View>
+            <View style={styles.widthed}>
+              <Text style={styles.text2}>{translate('NewUser.text2')}</Text>
             </View>
             <View style={styles.widthed}>
               <Button
                 text={translate('NewUser.savedThePhrase')}
-                background={colors[theme].blue}
                 onPress={this.handleSavedThePhrase}
                 loading={loading}
+                customStyle={confirmButton}
               />
             </View>
           </View>
@@ -106,24 +135,42 @@ class NewUser extends React.Component<ViewProps> {
 
 const styles = StyleSheet.create({
   body: {
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
     height: '100%',
+    paddingTop: sizes.padding.small,
   },
-  h1: {
-    fontSize: sizes.fonts.h1
+  header: {
+    fontSize: sizes.fonts.h1,
+    paddingLeft: sizes.padding.small,
+    paddingRight: sizes.padding.small,
   },
-  seedPhraseBox: {
+  pageContentBackground: {
     padding: sizes.padding.small,
     backgroundColor: colors.default.grey,
     marginBottom: sizes.margin.small,
   },
   widthed: {
-    width: '90%'
+    width: '100%'
   },
   text: {
-    fontSize: sizes.fonts.normal
-  }
-})
+    fontSize: sizes.fonts.normal,
+    color: colors.default.grey,
+    paddingLeft: sizes.padding.small,
+    paddingRight: sizes.padding.small,
+  },
+  text2: {
+    fontSize: sizes.fonts.small,
+    color: colors.default.lightGrey,
+    paddingLeft: sizes.padding.small,
+    paddingRight: sizes.padding.small,
+  },
+  important: {
+    fontSize: sizes.fonts.small,
+    color: colors.default.red,
+    paddingLeft: sizes.padding.small,
+    paddingRight: sizes.padding.small,
+  },
+});
 
 export default inject('store')(observer(NewUser))

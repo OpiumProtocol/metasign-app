@@ -15,7 +15,8 @@ export const sizes = {
   fonts: {
     h1: normalize(32),
     h3: normalize(25),
-    normal: normalize(23)
+    normal: normalize(23),
+    small: normalize(16),
   },
   borders: {
     radius: {

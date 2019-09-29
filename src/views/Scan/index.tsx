@@ -3,7 +3,9 @@ import {
   SafeAreaView,
   StyleSheet,
   StatusBar,
-  Vibration
+  Vibration,
+  Button,
+  Text,
 } from 'react-native'
 import { inject, observer } from 'mobx-react'
 import { RNCamera } from 'react-native-camera'
@@ -52,6 +54,14 @@ class Scan extends React.Component<ViewProps> {
       })
   }
 
+  getRandom = () => {
+    this.handleBarCodeRead({
+      data: `https://metastamp-be.herokuapp.com/${Date.now()%4}`,
+      type: '',
+      bounds: '',
+    })
+  }
+
   render() {
     const { theme } = this.props.store.settings
     return (
@@ -62,7 +72,11 @@ class Scan extends React.Component<ViewProps> {
             style={styles.camera}
             captureAudio={false}
             onBarCodeRead={this.handleBarCodeRead}
-          />
+          >
+            <Button title={"get random"} onPress={this.getRandom}>
+              <Text>get random</Text>
+            </Button>
+          </RNCamera>
         </SafeAreaView>
       </Fragment>
     )

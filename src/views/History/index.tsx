@@ -18,10 +18,8 @@ import moment from 'moment'
 import { ViewProps } from '../../utils/views'
 import { goToScan, goToFirstScreen } from '../../utils/navigation'
 
-// Components
-import Button from '../../components/Button'
-
 // Assets
+// @ts-ignore
 import ScanIcon from '../../assets/images/scan.svg'
 
 // Constants
@@ -43,6 +41,7 @@ class History extends React.Component<ViewProps> {
     Navigation.events().bindComponent(this)
   }
 
+  // @ts-ignore
   navigationButtonPressed({ buttonId }) {
     if (buttonId === 'logoutButton') {
       // Make good logout
@@ -117,7 +116,7 @@ class History extends React.Component<ViewProps> {
       </View>
     )
   }
-  
+
   keyExtractor = (item: IHistoryData) => item.id.toString()
 
   render() {
@@ -130,6 +129,13 @@ class History extends React.Component<ViewProps> {
           <View
             style={styles.body}
           >
+            <TouchableOpacity
+                style={styles.scanZone}
+                onPress={this.handleScanPress}
+            >
+              <ScanIcon/>
+              <Text style={styles.description}>{translate('History.description')}</Text>
+            </TouchableOpacity>
             <FlatList
               style={styles.list}
               data={data}
@@ -138,15 +144,6 @@ class History extends React.Component<ViewProps> {
               keyExtractor={this.keyExtractor}
               ListEmptyComponent={this.renderListEmpty}
             />
-            <View style={styles.scan}>
-              <Button
-                text={translate('general.scan')}
-                icon={<ScanIcon width={25} height={25} fill={'#ffffff'} />}
-                onPress={this.handleScanPress}
-                background={colors[theme].green}
-                bold
-              />
-            </View>
           </View>
         </SafeAreaView>
       </Fragment>
@@ -175,15 +172,32 @@ const styles = StyleSheet.create({
     width: sizes.images.logo,
     height: sizes.images.logo
   },
-  scan: {
-    position: 'absolute',
-    bottom: sizes.margin.small
+
+  scanZone: {
+    backgroundColor: colors.default.white,
+    height: "50%",
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-around",
+    alignItems: "center",
+    paddingLeft: 40,
+    paddingRight: 40,
   },
+
   listEmpty: {
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center'
-  }
+  },
+
+  description: {
+    fontSize: sizes.fonts.normal,
+    color: colors.default.grey,
+    paddingLeft: sizes.padding.small,
+    paddingRight: sizes.padding.small,
+    textAlign: "center"
+  },
 })
 
 const themedStyles = (theme: Theme) => StyleSheet.create({

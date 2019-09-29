@@ -8,6 +8,7 @@ import {
 
 import { colors } from '../../constants/colors'
 import { sizes } from '../../constants/sizes';
+import {normalize} from "../../utils/size";
 
 interface Props {
   seed: string,
@@ -31,7 +32,7 @@ const SeedPhrase = ({
   if (editable) {
     return (
       <TextInput
-        style={styles.seedPhraseBox}
+        style={styles.pageContentBackground}
         onChangeText={onChange}
         value={seed}
         placeholder={placeholder}
@@ -45,7 +46,7 @@ const SeedPhrase = ({
       onPress={onPress}
     >
       <Text
-        style={styles.seedPhraseBox}
+        style={styles.pageContentBackground}
       >
         {seed}
       </Text>
@@ -54,15 +55,14 @@ const SeedPhrase = ({
 }
 
 const styles = StyleSheet.create({
-  seedPhraseBox: {
-    borderColor: colors.default.lightGrey,
-    borderRadius: sizes.borders.radius.small,
+  pageContentBackground: {
+    padding: sizes.padding.normal,
     borderWidth: sizes.borders.small,
-    padding: sizes.padding.small,
-    backgroundColor: colors.default.white,
+    borderColor: colors.light.pageContentBorder,
+    backgroundColor: colors.light.pageContentBackground,
     marginBottom: sizes.margin.small,
-    minHeight: sizes.boxes.seedHeight,
-    color: colors.default.black,
+    height: normalize(152),
+    color: colors.light.blue,
     textAlignVertical: 'top',
     fontSize: sizes.fonts.h3,
   }

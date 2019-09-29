@@ -18,11 +18,12 @@ interface Props {
   type?: string,
   loading?: boolean,
   icon?: Element,
-  bold?: boolean
+  bold?: boolean,
+  customStyle?: any
 }
 
-const Button = ({ text, onPress, background, type, loading = false, icon, bold = false }: Props) => {
-  const style = styles({ background, type, bold })
+const Button = ({ text, onPress, background, type, loading = false, icon, bold = false, customStyle = undefined }: Props) => {
+  const style = customStyle ? customStyle : styles({ background, type, bold });
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -44,7 +45,8 @@ const Button = ({ text, onPress, background, type, loading = false, icon, bold =
 interface ButtonStyles {
   background?: string,
   type?: string,
-  bold: boolean
+  bold: boolean,
+  customStyle?: any
 }
 
 const circleStyles = {
@@ -53,7 +55,7 @@ const circleStyles = {
 
 const styles = ({ background, type, bold }: ButtonStyles) => {
   switch (type) {
-    case 'circle': 
+    case 'circle':
       return StyleSheet.create({
         button: {
           backgroundColor: background || colors.default.grey,

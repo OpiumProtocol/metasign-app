@@ -27,6 +27,30 @@ import { translate } from '../../constants/i18n'
 import { colors } from '../../constants/colors'
 import { sizes } from '../../constants/sizes'
 import SeedPhrase from '../../components/SeedPhrase'
+import {normalize} from "../../utils/size";
+
+const importButton = StyleSheet.create({
+  button: {
+    backgroundColor: colors['light'].blue,
+    paddingHorizontal: normalize(30),
+    paddingVertical: normalize(20),
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+    width: "100%",
+    height: normalize(56),
+  },
+  text: {
+    color: colors.default.white,
+    fontSize: normalize(16),
+    fontWeight: 'bold',
+    textAlign: "center",
+    width: "100%"
+  },
+  icon: {
+    marginRight: sizes.margin.small
+  }
+});
 
 class ExistingUser extends React.Component<ViewProps> {
   state = {
@@ -40,7 +64,7 @@ class ExistingUser extends React.Component<ViewProps> {
     if (this.screenStore.loading) {
       return
     }
-    
+
     InteractionManager.runAfterInteractions(async () => {
       try {
         await this.screenStore.registerNewSeed(this.state.seed)
@@ -67,7 +91,7 @@ class ExistingUser extends React.Component<ViewProps> {
             style={styles.body}
             behavior="padding" enabled
           >
-              <Text style={[styles.h1, styles.widthed]}>{translate('ExistingUser.welcome')}</Text>
+              <Text style={[styles.header]}>{translate('ExistingUser.welcome')}</Text>
               <View style={styles.widthed}>
                 <Text style={styles.text}>{translate('ExistingUser.text1')}</Text>
               </View>
@@ -79,10 +103,11 @@ class ExistingUser extends React.Component<ViewProps> {
                   placeholder={translate('ExistingUser.placeholder')}
                 />
               </View>
+              <View style={{height: "25%"}}></View>
               <View style={styles.widthed}>
                 <Button
                   text={translate('general.importAccount')}
-                  background={colors[theme].blue}
+                  customStyle={importButton}
                   onPress={this.handleImportAccount}
                   loading={loading}
                 />
@@ -97,19 +122,24 @@ class ExistingUser extends React.Component<ViewProps> {
 
 const styles = StyleSheet.create({
   body: {
-    alignItems: 'center',
+    alignItems: 'flex-start',
     justifyContent: 'space-between',
     height: '100%',
+    paddingTop: sizes.padding.small,
   },
-  h1: {
-    marginTop: sizes.margin.big,
-    fontSize: sizes.fonts.h1
+  header: {
+    fontSize: sizes.fonts.h1,
+    paddingLeft: sizes.padding.small,
+    paddingRight: sizes.padding.small,
   },
   widthed: {
-    width: '90%'
+    width: '100%'
   },
   text: {
-    fontSize: sizes.fonts.normal
+    fontSize: sizes.fonts.normal,
+    color: colors.default.grey,
+    paddingLeft: sizes.padding.small,
+    paddingRight: sizes.padding.small,
   }
 })
 

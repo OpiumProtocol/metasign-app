@@ -20,8 +20,13 @@ import store from './stores'
 import { screenWrapper } from './utils/screens'
 import { goToFirstScreen, goToHistory } from './utils/navigation'
 import engine from './utils/engine/'
+import TopBarLogo from "./components/TopBarLogo";
+import MenuButton from "./components/MenuButton";
+
 
 const registerScreens = () => {
+  Navigation.registerComponent(Screens.TOPBAR_MENU, () => MenuButton);
+  Navigation.registerComponent(Screens.TOPBAR_LOGO, () => TopBarLogo);
   Navigation.registerComponent(Screens.SCREEN_FIRST, () => screenWrapper(App, store), () => App)
   Navigation.registerComponent(Screens.SCREEN_NEW_USER, () => screenWrapper(NewUser, store), () => NewUser)
   Navigation.registerComponent(Screens.SCREEN_EXISTING_USER, () => screenWrapper(ExistingUser, store), () => ExistingUser)
@@ -29,9 +34,9 @@ const registerScreens = () => {
   Navigation.registerComponent(Screens.SCREEN_SCAN, () => screenWrapper(Scan, store), () => Scan)
   Navigation.registerComponent(Screens.SCREEN_CONFIRMATION, () => screenWrapper(Confirmation, store), () => Confirmation)
 }
- 
+
 Navigation.events().registerAppLaunchedListener(async () => {
-  // ********** STORAGE PERSISTANCE AND LOGIC ********** 
+  // ********** STORAGE PERSISTANCE AND LOGIC **********
   // Register persistent storage
   // await AsyncStorage.clear()
   await persist('@AppStore', store, {
@@ -59,8 +64,8 @@ Navigation.events().registerAppLaunchedListener(async () => {
       store.engine.setController('KeyringController', engine.state.KeyringController)
     })
   }
-  
-  // ********** REGISTER SCREENS ********** 
+
+  // ********** REGISTER SCREENS **********
   registerScreens()
 
   // ********** REDIRECT LOGIC **********

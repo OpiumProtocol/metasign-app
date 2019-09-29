@@ -21,11 +21,61 @@ import { translate } from '../../constants/i18n'
 import { colors, Theme } from '../../constants/colors'
 import { sizes } from '../../constants/sizes'
 
+// @ts-ignore
+import Logo from '../../assets/images/Logo.svg';
+import {normalize} from "../../utils/size";
+
+const createButton = StyleSheet.create({
+  button: {
+    backgroundColor: colors['default'].white,
+    borderRadius: normalize(10),
+    paddingHorizontal: normalize(30),
+    paddingVertical: normalize(20),
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+    width: "100%"
+  },
+  text: {
+    color: colors.light.blue,
+    fontSize: normalize(16),
+    fontWeight: 'bold',
+    textAlign: "center",
+    width: "100%"
+  },
+  icon: {
+    marginRight: sizes.margin.small
+  }
+});
+
+const importButton = StyleSheet.create({
+  button: {
+    backgroundColor: colors.light.blue,
+    borderRadius: normalize(10),
+    paddingHorizontal: normalize(30),
+    paddingVertical: normalize(20),
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+    width: "100%"
+  },
+  text: {
+    color: colors.default.white,
+    fontSize: normalize(16),
+    fontWeight: 'bold',
+    textAlign: "center",
+    width: "100%"
+  },
+  icon: {
+    marginRight: sizes.margin.small
+  }
+});
+
 class First extends React.Component<ViewProps> {
   handleNewUser = async () => {
     goToNewUser(this.props.componentId)
   }
-  
+
   handleExistingUser = () => {
     goToExistingUser(this.props.componentId)
   }
@@ -39,27 +89,31 @@ class First extends React.Component<ViewProps> {
           <View
             style={styles.body}
           >
-            <Text style={styles.h1} >{translate('First.welcome')}</Text>
+            <View style={styles.bodyUpsideBackground}>
+              <Logo/>
 
-            <View style={styles.widthed}>
-              <Text style={styles.label}>{translate('First.labelNewUser')}</Text>
+              <Text style={styles.labelNewUser}>{translate('First.labelNewUser')}</Text>
               <Button
-                text={translate('First.iAmNew')}
-                background={colors[theme].blue}
-                onPress={this.handleNewUser}
+                  text={translate('First.iAmNew')}
+                  onPress={this.handleNewUser}
+                  customStyle={createButton}
               />
+
+            </View>
+            <View style={styles.bodyDownsideBackground}>
+              <Text style={styles.labelOldUser}>{translate('First.labelOldUser')}</Text>
+
+              <Button
+                  text={translate('general.importAccount')}
+                  onPress={this.handleExistingUser}
+                  customStyle={importButton}
+              />
+
+              <Text style={styles.copyright}>
+                {translate('First.copyright')}
+              </Text>
             </View>
 
-            <View style={styles.widthed}>
-              <Text style={styles.label}>{translate('First.labelOldUser')}</Text>
-              <TouchableOpacity
-                onPress={this.handleExistingUser}
-              >
-                <Text style={styles.link}>
-                  {translate('general.importAccount')}
-                </Text>
-              </TouchableOpacity>
-            </View>
           </View>
         </SafeAreaView>
       </Fragment>
@@ -81,15 +135,49 @@ const styles = StyleSheet.create({
     width: '90%',
     alignItems: 'center'
   },
-  label: {
+  labelNewUser: {
     marginBottom: sizes.margin.small,
-    fontSize: sizes.fonts.normal
+    fontSize: sizes.fonts.normal,
+    color: colors['default'].white,
+    textAlign: "center",
+    marginLeft: -30,
+    marginRight: -30,
   },
-  link: {
-    fontSize: sizes.fonts.h3,
-    color: colors['light'].blue,
-    textDecorationLine: 'underline'
-  }
-})
+  labelOldUser: {
+    marginBottom: sizes.margin.small,
+    fontSize: sizes.fonts.normal,
+    color: colors['default'].grey,
+    textAlign: "center",
+  },
+  copyright: {
+    fontSize: sizes.fonts.small,
+    color: colors['default'].lightGrey,
+    textAlign: "center",
+  },
+
+  bodyUpsideBackground: {
+    backgroundColor: colors.light.blue,
+    height: "50%",
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-around",
+    alignItems: "center",
+    paddingLeft: 40,
+    paddingRight: 40,
+  },
+  bodyDownsideBackground: {
+    backgroundColor: colors['default'].white,
+    height: "50%",
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-evenly",
+    alignItems: "center",
+    paddingLeft: 40,
+    paddingRight: 40,
+  },
+
+});
 
 export default inject('store')(observer(First))

@@ -4,6 +4,8 @@ import { Navigation } from 'react-native-navigation'
 import * as Screens from '../constants/screenIds'
 import { translate } from '../constants/i18n'
 import { IHistoryData } from '../stores/history/models/HistoryData'
+import {colors} from "../constants/colors";
+import {TOPBAR_LOGO, TOPBAR_MENU} from "../constants/screenIds";
 
 export const goToFirstScreen = () => {
   Navigation.setRoot({
@@ -14,7 +16,12 @@ export const goToFirstScreen = () => {
             name: Screens.SCREEN_FIRST,
             options: {
               topBar: {
-                visible: false
+                background: {
+                  color: colors.light.blue,
+                  translucent: false,
+                },
+                noBorder: true,
+                visible: true
               }
             }
           },
@@ -30,8 +37,13 @@ export const goToNewUser = (componentId: string) => {
       name: Screens.SCREEN_NEW_USER,
       options: {
         topBar: {
+            background: {
+                color: colors.light.pageContentBackground,
+                translucent: false,
+            },
+            borderColor: colors.light.pageContentBorder,
           title: {
-            text: translate('First.iAmNew'),
+            text: translate('NewUser.title'),
           },
           backButton: {
             title: translate('general.back')
@@ -48,8 +60,13 @@ export const goToExistingUser = (componentId: string) => {
       name: Screens.SCREEN_EXISTING_USER,
       options: {
         topBar: {
+            background: {
+                color: colors.light.pageContentBackground,
+                translucent: false,
+            },
+            borderColor: colors.light.pageContentBorder,
           title: {
-            text: translate('general.importAccount'),
+            text: translate('ExistingUser.title'),
           },
           backButton: {
             title: translate('general.back')
@@ -69,13 +86,24 @@ export const goToHistory = () => {
             name: Screens.SCREEN_HISTORY,
             options: {
               topBar: {
-                title: {
-                  text: translate('History.title')
+                background: {
+                  color: colors.light.blue,
+                  translucent: false
                 },
+                leftButtons: [
+                  {
+                    id: 'logo',
+                    component: {
+                      name: TOPBAR_LOGO
+                    },
+                  }
+                ],
                 rightButtons: [
                   {
-                    id: 'logoutButton',
-                    text: translate('History.logout')
+                    id: 'menuButton',
+                    component: {
+                      name: TOPBAR_MENU
+                    },
                   }
                 ]
               }

@@ -14,26 +14,30 @@ export const translations = {
   en: {
     general: {
       back: 'Back',
-      importAccount: 'Import account',
+      importAccount: 'IMPORT ACCOUNT',
       application: 'Application',
       scan: 'Scan',
-      clipboardSuccess: 'Copied to clipboard'
+      clipboardSuccess: 'copied to clipboard'
     },
     First: {
       welcome: 'Welcome to MetaSign',
-      labelNewUser: "Don't know what to do?",
-      labelOldUser: "Already have seed phrase or private key?",
-      iAmNew: "Create an account",
+      labelNewUser: "Sign your way into quick transactions. Create an account now or  use one that you already have.",
+      labelOldUser: "Already have a seed phrase or  private key?",
+      iAmNew: "CREATE ACCOUNT",
+      copyright: "Built by Opium.team",
     },
     NewUser: {
-      welcome: "Look at him!\nWe've got a noob here",
-      savedThePhrase: 'I have saved the phrase',
-      text1: 'We have made everything for you man',
-      text2: 'Write down and save this seed phrase under your bed as you will more likely need it in future'
+      title: "Create account",
+      welcome: "You’re almost there...",
+      savedThePhrase: 'I SAVED THE PHRASE',
+      text1: 'Please write down and save this seed phrase as you will need it to log into your account.',
+      text2: 'In case you loose this phrase you loose access to your account, all your transactions and assets.',
+      important: "IMPORTANT!"
     },
     ExistingUser: {
-      welcome: 'You are a good person to work with',
-      text1: 'Paste your seed phrase or private key here to import it into an application',
+      title: "Import account",
+      welcome: 'You’re almost there...',
+      text1: 'Paste your seed phrase or private key here to import your account in the application',
       placeholder: 'Enter your seed phrase here...'
     },
     History: {
@@ -43,7 +47,8 @@ export const translations = {
       confirmed: 'Confirmed',
       rejected: 'Rejected',
       listEmpty: 'The list is empty',
-      logout: 'Log out'
+      logout: 'Log out',
+      description: "Tap here to open camera and  scan the QR code on your screen."
     },
     Confirmation: {
       title: 'Confirmation',
