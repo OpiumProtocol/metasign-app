@@ -102,7 +102,7 @@ export const goToHistory = () => {
                   {
                     id: 'menuButton',
                     component: {
-                      name: TOPBAR_MENU
+                      name: TOPBAR_MENU,
                     },
                   }
                 ]
@@ -142,11 +142,17 @@ export const goToConfirmation = (componentId: string, data: IHistoryData) => {
       },
       options: {
         topBar: {
+          background: {
+            color: colors.light.blue,
+            translucent: false
+          },
           title: {
             text: translate('Confirmation.title'),
+            color: colors.default.white,
           },
           backButton: {
-            title: translate('general.back')
+            title: translate('general.back'),
+            color: colors.default.white,
           }
         }
       }

@@ -2,13 +2,15 @@ import React from "react";
 import {
     Image, TouchableOpacity,
 } from 'react-native'
+import {Navigation} from "react-native-navigation";
+import ee from "../../utils/events";
 
 const menu = require("../../assets/images/menu.png");
 
 export default class MenuButton extends React.Component {
 
     openMenu = () => {
-        console.log("open menu");
+        ee.emit("open-menu");
     };
 
     render() {

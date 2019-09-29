@@ -7,7 +7,7 @@ export const sizes = {
     small: normalize(10),
   },
   padding: {
-    tiny: normalize(5),
+    tiny: normalize(3),
     small: normalize(10),
     normal: normalize(20),
     big: normalize(30)
@@ -25,7 +25,8 @@ export const sizes = {
     small: normalize(1)
   },
   images: {
-    logo: normalize(100)
+    logo: normalize(40),
+    bigLogo: normalize(80),
   },
   boxes: {
     normal: normalize(200),

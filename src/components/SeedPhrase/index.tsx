@@ -20,6 +20,8 @@ interface Props {
 
   // Non-editable
   onPress?: () => void,
+
+  customStyle?: any,
 }
 
 const SeedPhrase = ({
@@ -28,6 +30,7 @@ const SeedPhrase = ({
   onChange = () => {},
   placeholder = '',
   onPress = () => {},
+  customStyle = {},
 }: Props) => {
   if (editable) {
     return (
@@ -46,7 +49,7 @@ const SeedPhrase = ({
       onPress={onPress}
     >
       <Text
-        style={styles.pageContentBackground}
+        style={[styles.pageContentBackground, customStyle]}
       >
         {seed}
       </Text>

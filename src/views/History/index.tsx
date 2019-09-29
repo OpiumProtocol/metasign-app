@@ -1,54 +1,80 @@
-import React, { Fragment } from 'react'
+import React, {Fragment} from 'react'
 import {
-  SafeAreaView,
-  StyleSheet,
-  View,
-  Image,
-  Text,
-  StatusBar,
+  Button,
   FlatList,
-  TouchableOpacity,
+  Image,
   Linking,
+  SafeAreaView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native'
-import { Navigation } from 'react-native-navigation'
-import { inject, observer } from 'mobx-react'
+import {Navigation} from 'react-native-navigation'
+import {inject, observer} from 'mobx-react'
 import moment from 'moment'
-
 // Utils
-import { ViewProps } from '../../utils/views'
-import { goToScan, goToFirstScreen } from '../../utils/navigation'
-
+import {ViewProps} from '../../utils/views'
+import {goToFirstScreen, goToScan} from '../../utils/navigation'
 // Assets
 // @ts-ignore
 import ScanIcon from '../../assets/images/scan.svg'
-
 // Constants
-import { translate } from '../../constants/i18n'
-import { colors, Theme } from '../../constants/colors'
-import { sizes } from '../../constants/sizes'
-
+import {translate} from '../../constants/i18n'
+import {colors, Theme} from '../../constants/colors'
+import {sizes} from '../../constants/sizes'
 // Models
-import { IHistoryData } from '../../stores/history/models/HistoryData'
-import { SignatureStatus } from '../../constants/statuses'
+import {IHistoryData} from '../../stores/history/models/HistoryData'
+import {SignatureStatus} from '../../constants/statuses'
+import {normalize} from "../../utils/size";
+// @ts-ignore
+import SideMenu from 'react-native-side-menu';
+import SideBar from "../../components/SideBar";
+import ee from "../../utils/events";
 
 interface RenderItemArgs {
-  item: IHistoryData
+  item: IHistoryData,
 }
 
-class History extends React.Component<ViewProps> {
+class History extends React.Component<ViewProps, {
+  isOpenSideBar: boolean
+}> {
+
   constructor(props: ViewProps) {
-    super(props)
-    Navigation.events().bindComponent(this)
+    super(props);
+
+    this.state = {
+      isOpenSideBar: false
+    };
+
+    ee.addListener("open-menu", this.openSideBar);
+    ee.addListener("logout", this.logout);
   }
 
-  // @ts-ignore
-  navigationButtonPressed({ buttonId }) {
-    if (buttonId === 'logoutButton') {
-      // Make good logout
-      this.props.store.settings.setLoggedIn(false)
-      goToFirstScreen()
-    }
-  }
+  logout = () => {
+    // Make good logout
+    this.props.store.settings.setLoggedIn(false);
+    goToFirstScreen();
+  };
+
+  closeSideBar = () => {
+    this.setState({
+      isOpenSideBar: false
+    });
+  };
+
+  openSideBar = () => {
+    this.setState({
+      isOpenSideBar: true
+    });
+  };
+
+  onChangeSideBarState = (isOpen: boolean) => {
+    this.setState({
+      isOpenSideBar: isOpen
+    });
+  };
 
   handleLinkPress = (link: string) => () => {
     Linking.openURL(`https://${link}`)
@@ -62,7 +88,7 @@ class History extends React.Component<ViewProps> {
     const { theme } = this.props.store.settings
     const themedStyle = themedStyles(theme)
     return (
-      <View style={themedStyle.item}>
+      <View style={themedStyle.item} key={item.timestamp}>
         <Image
           source={{
             uri: item.logo
@@ -72,7 +98,6 @@ class History extends React.Component<ViewProps> {
         />
         <View style={styles.info}>
           <View style={styles.infoItem}>
-            <Text>{translate('general.application') + ': '}</Text>
             <TouchableOpacity
               onPress={this.handleLinkPress(item.domain)}
             >
@@ -84,18 +109,16 @@ class History extends React.Component<ViewProps> {
             </TouchableOpacity>
           </View>
           <Text style={styles.infoItem}>
-            {translate('History.date') + ': '}
-            {moment.unix(item.timestamp).format('DD.MM.YYYY hh:mm A')}
+            {moment.unix(item.timestamp).format('DD MMMM, YYYY HH:mm')}
           </Text>
-          <View style={styles.infoItem}>
-            <Text>{translate('History.status') + ': '}</Text>
-            <Text
-              style={
-                item.status == SignatureStatus.confirmed ? themedStyle.confirmed : themedStyle.rejected
-              }
-            >{translate(`History.${item.status}`)}</Text>
-          </View>
         </View>
+          <View style={styles.status}>
+              <Text
+                  style={
+                      item.status == SignatureStatus.confirmed ? themedStyle.confirmed : themedStyle.rejected
+                  }
+              >{translate(`History.${item.status}`)}</Text>
+          </View>
       </View>
     )
   }
@@ -122,31 +145,45 @@ class History extends React.Component<ViewProps> {
   render() {
     const { data } = this.props.store.history
     const { theme } = this.props.store.settings
+    const sideBar = (
+        <SideBar componentId={this.props.componentId}
+                 onCloseSideBar={() => {
+                   this.closeSideBar()
+                 }
+                 }
+        />
+    );
     return (
-      <Fragment>
-        <StatusBar barStyle='dark-content' />
-        <SafeAreaView>
-          <View
-            style={styles.body}
-          >
-            <TouchableOpacity
-                style={styles.scanZone}
-                onPress={this.handleScanPress}
-            >
-              <ScanIcon/>
-              <Text style={styles.description}>{translate('History.description')}</Text>
-            </TouchableOpacity>
-            <FlatList
-              style={styles.list}
-              data={data}
-              renderItem={this.renderItem}
-              ItemSeparatorComponent={this.renderSeparator}
-              keyExtractor={this.keyExtractor}
-              ListEmptyComponent={this.renderListEmpty}
-            />
-          </View>
-        </SafeAreaView>
-      </Fragment>
+        <SideMenu menu={sideBar}
+                  isOpen={this.state.isOpenSideBar}
+                  menuPosition={"right"}
+                  onChange={(isOpen: boolean) => this.onChangeSideBarState(isOpen)}
+        >
+          <Fragment>
+            <StatusBar barStyle='dark-content' />
+            <SafeAreaView>
+              <View
+                style={styles.body}
+              >
+                <TouchableOpacity
+                    style={styles.scanZone}
+                    onPress={this.handleScanPress}
+                >
+                  <ScanIcon styles={styles.scanIcon}/>
+                  <Text style={styles.description}>{translate('History.description')}</Text>
+                </TouchableOpacity>
+                <FlatList
+                  style={styles.list}
+                  data={data}
+                  renderItem={this.renderItem}
+                  ItemSeparatorComponent={this.renderSeparator}
+                  keyExtractor={this.keyExtractor}
+                  ListEmptyComponent={this.renderListEmpty}
+                />
+              </View>
+            </SafeAreaView>
+          </Fragment>
+        </SideMenu>
     )
   }
 }
@@ -159,30 +196,46 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   list: {
-    width: '100%'
+    width: '100%',
+      backgroundColor: colors.light.pageContentBackground,
+      borderColor: colors.light.pageContentBorder,
   },
   info: {
-    width: '85%'
+      flexGrow: 1,
+  },
+  status: {
+      textAlign: "right",
+      alignSelf: "center",
+      paddingRight: sizes.padding.small
   },
   infoItem: {
+      paddingLeft: sizes.padding.normal,
     paddingVertical: sizes.padding.tiny,
     flexDirection: 'row',
+      justifyContent: "space-between",
+    color: colors.default.lightGrey,
   },
   image: {
     width: sizes.images.logo,
-    height: sizes.images.logo
+    height: sizes.images.logo,
+      alignSelf: "center"
+  },
+
+  scanIcon: {
+    width: normalize(111),
+    height: normalize(111),
+    padding: sizes.padding.normal
   },
 
   scanZone: {
     backgroundColor: colors.default.white,
-    height: "50%",
+    height: normalize(220),
     width: "100%",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
     alignItems: "center",
-    paddingLeft: 40,
-    paddingRight: 40,
+    padding: sizes.padding.normal,
   },
 
   listEmpty: {
@@ -193,7 +246,7 @@ const styles = StyleSheet.create({
 
   description: {
     fontSize: sizes.fonts.normal,
-    color: colors.default.grey,
+    color: colors.default.black,
     paddingLeft: sizes.padding.small,
     paddingRight: sizes.padding.small,
     textAlign: "center"
@@ -203,7 +256,7 @@ const styles = StyleSheet.create({
 const themedStyles = (theme: Theme) => StyleSheet.create({
   item: {
     width: '100%',
-    paddingVertical: sizes.padding.tiny,
+    paddingVertical: sizes.padding.small,
     paddingHorizontal: sizes.padding.small,
     flexDirection: 'row',
   },
@@ -214,12 +267,13 @@ const themedStyles = (theme: Theme) => StyleSheet.create({
   },
   link: {
     color: colors[theme].blue,
-    textDecorationLine: 'underline'
   },
   confirmed: {
+    fontSize: sizes.fonts.small,
     color: colors[theme].confirmed,
   },
   rejected: {
+    fontSize: sizes.fonts.small,
     color: colors[theme].rejected,
   }
 })

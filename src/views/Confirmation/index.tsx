@@ -31,10 +31,55 @@ import { SignatureStatus } from '../../constants/statuses'
 // Stores
 import { IHistoryData } from '../../stores/history/models/HistoryData'
 import SeedPhrase from '../../components/SeedPhrase'
+import {normalize} from "../../utils/size";
 
 interface ProtocolDataProps {
   data: IHistoryData
 }
+
+const rejectButton = StyleSheet.create({
+  button: {
+    backgroundColor: colors.light.pageContentBackground,
+    paddingHorizontal: normalize(30),
+    paddingVertical: normalize(20),
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+    width: "100%"
+  },
+  text: {
+    color: colors.light.blue,
+    fontSize: normalize(16),
+    fontWeight: 'bold',
+    textAlign: "center",
+    width: "100%"
+  },
+  icon: {
+    marginRight: sizes.margin.small
+  }
+});
+
+const confirmButton = StyleSheet.create({
+  button: {
+    backgroundColor: colors.light.blue,
+    paddingHorizontal: normalize(30),
+    paddingVertical: normalize(20),
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+    width: "100%"
+  },
+  text: {
+    color: colors.default.white,
+    fontSize: normalize(16),
+    fontWeight: 'bold',
+    textAlign: "center",
+    width: "100%"
+  },
+  icon: {
+    marginRight: sizes.margin.small
+  }
+});
 
 class Confirmation extends React.Component<ViewProps & ProtocolDataProps> {
   state = {
@@ -84,7 +129,7 @@ class Confirmation extends React.Component<ViewProps & ProtocolDataProps> {
   _updateSections = (activeSections: Array<any>) => {
     this.setState({ activeSections })
   }
-  
+
   render() {
     const { theme } = this.props.store.settings
     const data = this.props.data
@@ -93,6 +138,11 @@ class Confirmation extends React.Component<ViewProps & ProtocolDataProps> {
       header: translate('Confirmation.advancedData')+' \u25be',
       content: (
         <SeedPhrase
+            customStyle={{
+              color: colors.light.grey,
+              fontSize: sizes.fonts.normal,
+              height: "auto",
+            }}
           seed={
             JSON.stringify(data.data.domain, null, 2) + '\n' + JSON.stringify(data.data.message, null, 2)
           }
@@ -107,10 +157,9 @@ class Confirmation extends React.Component<ViewProps & ProtocolDataProps> {
             <ScrollView
               style={styles.body}
             >
-              <Text style={styles.text}>{translate('Confirmation.explanation')}</Text>
+              <Text style={styles.explanation}>{translate('Confirmation.explanation')}</Text>
               <View style={styles.application}>
                 <View>
-                  <Text style={styles.text}>{translate('general.application')}</Text>
                   <TouchableOpacity
                     onPress={this.handleLinkPress(data.domain)}
                   >
@@ -129,10 +178,8 @@ class Confirmation extends React.Component<ViewProps & ProtocolDataProps> {
                   resizeMode={'contain'}
                 />
               </View>
-              <Text style={styles.text}>{translate('Confirmation.description')}{' ' + data.domain}</Text>
-              <SeedPhrase
-                seed={data.description}
-              />
+              <Text style={styles.descriptionTitle}>{translate('Confirmation.description')}</Text>
+              <Text style={styles.description}>{data.domain}</Text>
               <Accordion
                 activeSections={this.state.activeSections}
                 sections={SECTIONS}
@@ -141,20 +188,21 @@ class Confirmation extends React.Component<ViewProps & ProtocolDataProps> {
                 renderContent={this._renderContent}
                 onChange={this._updateSections}
                 touchableComponent={TouchableOpacity}
+                containerStyle={styles.accordion}
               />
             </ScrollView>
             <View style={styles.buttons}>
               <View style={styles.button}>
                 <Button
                   text={translate('Confirmation.reject')}
-                  background={colors[theme].rejected}
+                  customStyle={rejectButton}
                   onPress={this.handleStatusPress(SignatureStatus.rejected, data)}
                 />
               </View>
               <View style={styles.button}>
-                <Button 
+                <Button
                   text={translate('Confirmation.confirm')}
-                  background={colors[theme].confirmed}
+                  customStyle={confirmButton}
                   onPress={this.handleStatusPress(SignatureStatus.confirmed, data)}
                 />
               </View>
@@ -174,17 +222,18 @@ const styles = StyleSheet.create({
   },
   body: {
     paddingVertical: sizes.padding.small,
-    paddingHorizontal: sizes.padding.big
+    width: "100%",
   },
   application: {
     paddingVertical: sizes.padding.tiny,
+    paddingHorizontal: sizes.padding.normal,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
   },
   image: {
-    width: sizes.images.logo,
-    height: sizes.images.logo
+    width: sizes.images.bigLogo,
+    height: sizes.images.bigLogo
   },
   buttons: {
     width: '100%',
@@ -201,20 +250,47 @@ const styles = StyleSheet.create({
   content: {
     width: '100%'
   },
+  explanation: {
+    fontSize: sizes.fonts.h1,
+    fontWeight: "bold",
+    textAlign: 'left',
+    marginBottom: sizes.margin.small,
+    color: colors.default.black,
+    paddingHorizontal: sizes.padding.normal,
+  },
+  descriptionTitle: {
+    fontSize: sizes.fonts.normal,
+    fontWeight: "bold",
+    textAlign: 'left',
+    color: colors.light.grey,
+    paddingHorizontal: sizes.padding.normal,
+  },
+  description: {
+    fontSize: sizes.fonts.normal,
+    textAlign: 'left',
+    marginBottom: sizes.margin.small,
+    color: colors.light.grey,
+    paddingHorizontal: sizes.padding.normal,
+  },
   text: {
     fontSize: sizes.fonts.normal,
     textAlign: 'center',
     marginBottom: sizes.margin.small
   },
   button: {
-    width: '45%'
+    width: '50%'
+  },
+  accordion: {
+    borderWidth: sizes.borders.small,
+    borderColor: colors.light.pageContentBorder,
+    backgroundColor: colors.light.pageContentBackground,
+    width: "100%",
   }
-})
+});
 
 const themedStyles = (theme: Theme) => StyleSheet.create({
   link: {
     color: colors[theme].blue,
-    textDecorationLine: 'underline',
     fontSize: sizes.fonts.normal,
   },
   box: {

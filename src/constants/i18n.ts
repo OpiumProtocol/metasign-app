@@ -44,8 +44,8 @@ export const translations = {
       title: 'History',
       date: 'Date',
       status: 'Status',
-      confirmed: 'Confirmed',
-      rejected: 'Rejected',
+      confirmed: 'CONFIRMED',
+      rejected: 'REJECTED',
       listEmpty: 'The list is empty',
       logout: 'Log out',
       description: "Tap here to open camera and  scan the QR code on your screen."
@@ -53,10 +53,18 @@ export const translations = {
     Confirmation: {
       title: 'Confirmation',
       advancedData: 'Advanced data',
-      description: 'Description provided by',
+      description: 'App Description',
       reject: 'REJECT',
       confirm: 'CONFIRM',
-      explanation: 'Your signature is needed for',
-    }
+      explanation: 'Please sign this\noperation',
+    },
+    SideMenu: {
+      account: "Account",
+      closeApp: "Close app",
+      closeAppDesc: "Get back in the same account",
+      deregisterAccount: "Deregister account",
+      deregisterAccountDesc: "Removes your data from the app",
+      info: "More info",
+    },
   },
-}
+};
