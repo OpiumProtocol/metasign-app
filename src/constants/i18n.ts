@@ -21,8 +21,8 @@ export const translations = {
     },
     First: {
       welcome: 'Welcome to MetaSign',
-      labelNewUser: "Sign your way into quick transactions. Create an account now or  use one that you already have.",
-      labelOldUser: "Already have a seed phrase or  private key?",
+      labelNewUser: "Sign your way into quick transactions. Create an account now or use one that you already have.",
+      labelOldUser: "Already have a seed phrase or private key?",
       iAmNew: "CREATE ACCOUNT",
       copyright: "Built by Opium.team",
     },
@@ -48,7 +48,7 @@ export const translations = {
       rejected: 'REJECTED',
       listEmpty: 'The list is empty',
       logout: 'Log out',
-      description: "Tap here to open camera and  scan the QR code on your screen."
+      description: "Tap here to open camera and scan the QR code on your screen."
     },
     Confirmation: {
       title: 'Confirmation',
