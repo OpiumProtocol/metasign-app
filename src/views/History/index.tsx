@@ -157,6 +157,7 @@ class History extends React.Component<ViewProps, {
         <SideMenu menu={sideBar}
                   isOpen={this.state.isOpenSideBar}
                   menuPosition={"right"}
+                  componentId={this.props.componentId}
                   onChange={(isOpen: boolean) => this.onChangeSideBarState(isOpen)}
         >
           <Fragment>
@@ -218,6 +219,7 @@ const styles = StyleSheet.create({
   image: {
     width: sizes.images.logo,
     height: sizes.images.logo,
+    borderRadius: 40,
       alignSelf: "center"
   },
 

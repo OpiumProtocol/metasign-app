@@ -16,6 +16,10 @@ import Accordion from 'react-native-collapsible/Accordion'
 
 // Components
 import Button from '../../components/Button'
+// @ts-ignore
+import ExpandIcon from "../../assets/images/Expand.svg";
+// @ts-ignore
+import CollapseIcon from "../../assets/images/Collapse.svg";
 
 // Utils
 import { goToHistory } from '../../utils/navigation'
@@ -32,6 +36,7 @@ import { SignatureStatus } from '../../constants/statuses'
 import { IHistoryData } from '../../stores/history/models/HistoryData'
 import SeedPhrase from '../../components/SeedPhrase'
 import {normalize} from "../../utils/size";
+import stripLow from "validator/lib/stripLow";
 
 interface ProtocolDataProps {
   data: IHistoryData
@@ -120,11 +125,19 @@ class Confirmation extends React.Component<ViewProps & ProtocolDataProps> {
     Linking.openURL(`https://${link}`)
   }
 
-  _renderHeader = content => <Text style={styles.header}>{content.header}</Text>
+  _renderHeader = (content: any, index: number, isActive: boolean) =>(<View style={styles.header}>
+    <Text style={styles.headerText}>{content.header}</Text>
+    {
+      isActive ?
+          <CollapseIcon style={styles.collapseIndicator}/>
+          :
+          <ExpandIcon style={styles.collapseIndicator}/>
+    }
+  </View>)
 
-  _renderContent = content => <View style={styles.content}>{content.content}</View>
+  _renderContent = (content: any) => <View style={styles.content}>{content.content}</View>
 
-  _renderSectionTitle = () => null
+  _renderSectionTitle = () => <View/>
 
   _updateSections = (activeSections: Array<any>) => {
     this.setState({ activeSections })
@@ -135,13 +148,14 @@ class Confirmation extends React.Component<ViewProps & ProtocolDataProps> {
     const data = this.props.data
     const themedStyle = themedStyles(theme)
     const SECTIONS = [{
-      header: translate('Confirmation.advancedData')+' \u25be',
+      header: translate('Confirmation.advancedData'),
       content: (
         <SeedPhrase
             customStyle={{
               color: colors.light.grey,
-              fontSize: sizes.fonts.normal,
+              fontSize: sizes.fonts.small,
               height: "auto",
+              borderWidth: 0,
             }}
           seed={
             JSON.stringify(data.data.domain, null, 2) + '\n' + JSON.stringify(data.data.message, null, 2)
@@ -243,9 +257,23 @@ const styles = StyleSheet.create({
   },
   header: {
     width: '100%',
-    textAlign: 'center',
-    padding: sizes.padding.normal,
-    fontSize: sizes.fonts.normal
+    backgroundColor: colors.light.pageContentBackground,
+    paddingHorizontal: sizes.padding.normal,
+    paddingVertical: sizes.padding.normal,
+    fontSize: sizes.fonts.normal,
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  collapseIndicator: {
+    marginRight: sizes.padding.small,
+    alignSelf: "center",
+  },
+  headerText: {
+    textAlign: 'left',
+    fontSize: sizes.fonts.small,
+    color: colors.light.grey,
+    fontWeight: "bold",
   },
   content: {
     width: '100%'
@@ -281,9 +309,6 @@ const styles = StyleSheet.create({
     width: '50%'
   },
   accordion: {
-    borderWidth: sizes.borders.small,
-    borderColor: colors.light.pageContentBorder,
-    backgroundColor: colors.light.pageContentBackground,
     width: "100%",
   }
 });

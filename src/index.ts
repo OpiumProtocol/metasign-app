@@ -9,6 +9,7 @@ import ExistingUser from './views/ExistingUser'
 import History from './views/History'
 import Scan from './views/Scan'
 import Confirmation from './views/Confirmation'
+import Info from './views/Info'
 
 // Constants
 import * as Screens from './constants/screenIds'
@@ -33,6 +34,7 @@ const registerScreens = () => {
   Navigation.registerComponent(Screens.SCREEN_HISTORY, () => screenWrapper(History, store), () => History)
   Navigation.registerComponent(Screens.SCREEN_SCAN, () => screenWrapper(Scan, store), () => Scan)
   Navigation.registerComponent(Screens.SCREEN_CONFIRMATION, () => screenWrapper(Confirmation, store), () => Confirmation)
+  Navigation.registerComponent(Screens.SCREEN_INFO, () => screenWrapper(Info, store), () => Info)
 }
 
 Navigation.events().registerAppLaunchedListener(async () => {

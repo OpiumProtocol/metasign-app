@@ -21,7 +21,7 @@ export const goToFirstScreen = () => {
                   translucent: false,
                 },
                 noBorder: true,
-                visible: true
+                visible: false,
               }
             }
           },
@@ -121,11 +121,17 @@ export const goToScan = (componentId: string) => {
       name: Screens.SCREEN_SCAN,
       options: {
         topBar: {
+          background: {
+            color: colors.light.blue,
+            translucent: false
+          },
           title: {
-            text: translate('general.scan'),
+            text: translate('Scan.title'),
+            color: colors.default.white,
           },
           backButton: {
-            title: translate('general.back')
+            title: translate('general.back'),
+            color: colors.default.white,
           }
         }
       }
@@ -148,6 +154,30 @@ export const goToConfirmation = (componentId: string, data: IHistoryData) => {
           },
           title: {
             text: translate('Confirmation.title'),
+            color: colors.default.white,
+          },
+          backButton: {
+            title: translate('general.back'),
+            color: colors.default.white,
+          }
+        }
+      }
+    }
+  })
+}
+
+export const goToInfo = (componentId: string) => {
+  Navigation.push(componentId, {
+    component: {
+      name: Screens.SCREEN_INFO,
+      options: {
+        topBar: {
+          background: {
+            color: colors.light.blue,
+            translucent: false
+          },
+          title: {
+            text: translate('Info.title'),
             color: colors.default.white,
           },
           backButton: {

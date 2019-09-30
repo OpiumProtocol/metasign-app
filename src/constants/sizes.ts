@@ -4,6 +4,7 @@ export const sizes = {
   margin: {
     huge: normalize(150),
     big: normalize(23),
+    normal: normalize(18),
     small: normalize(10),
   },
   padding: {

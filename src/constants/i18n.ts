@@ -60,11 +60,32 @@ export const translations = {
     },
     SideMenu: {
       account: "Account",
-      closeApp: "Close app",
+      closeApp: "Log out",
       closeAppDesc: "Get back in the same account",
       deregisterAccount: "Deregister account",
       deregisterAccountDesc: "Removes your data from the app",
       info: "More info",
+    },
+    Info: {
+      title: "Info/Help",
+        description: 'This is what you need to know about metasign, and something more:',
+      section1: "section 1",
+      content1: "This is the test app that can have a longer description This is the test app that can have a longer description Another ",
+      section2: "section 2",
+      content2: "This is the test app that can have a longer description This is the test app that can have a longer description Another  This is the test app that can have a longer description This is the test app that can have a longer description Another ",
+      section3: "name of section",
+      content3: "content of section\ncontent of section\ncontent of section\ncontent of section\n",
+    },
+    Disclaimer: {
+      title: "IMPORTANT!",
+      cancel: "Cancel",
+      accept: "Deregister",
+      message: "\n\nBefore you deregister make sure you remember your 6 phrase.\n\nIn case you loose this phrase you loose access to your account, all your transactions and assets.",
+    },
+    Scan: {
+      title: "Scan QR",
+      description: "Scan the QR code.",
+      info: "more info",
     },
   },
 };

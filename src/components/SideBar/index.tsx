@@ -1,68 +1,93 @@
 import React, {Component} from "react";
 import {View, StyleSheet, TouchableOpacity, Text} from "react-native";
-import Button from "../Button";
 import {translate} from "../../constants/i18n";
 import {colors} from "../../constants/colors";
 import {normalize} from "../../utils/size";
 import {sizes} from "../../constants/sizes";
 // @ts-ignore
 import CloseMenuIcon from "../../assets/images/CloseMenu.svg";
-import {goToFirstScreen} from "../../utils/navigation";
+import {goToInfo} from "../../utils/navigation";
 import ee from "../../utils/events";
-
-const menuButton = StyleSheet.create({
-    button: {
-        backgroundColor: colors['default'].white,
-        borderRadius: normalize(10),
-        paddingHorizontal: normalize(30),
-        paddingVertical: normalize(20),
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'row',
-        width: "100%"
-    },
-    text: {
-        color: colors.light.blue,
-        fontSize: normalize(16),
-        fontWeight: 'bold',
-        textAlign: "center",
-        width: "100%"
-    },
-    icon: {
-        marginRight: sizes.margin.small
-    }
-});
+import Dialog from "react-native-dialog";
 
 export default class SideBar extends Component<{
     componentId: any,
     onCloseSideBar: Function,
-}, {}> {
+}, {
+    disclaimerVisible: boolean,
+}> {
+
+    constructor(props: any) {
+        super(props);
+        this.state = {
+            disclaimerVisible: false,
+        }
+    }
 
     closeMenu = () => {
         this.props.onCloseSideBar();
     };
 
     closeApp = () => {
-        this.props.onCloseSideBar();
+        this.closeMenu();
     };
 
     deregisterAccount = () => {
-        this.props.onCloseSideBar();
+        this.showDisclaimer();
+        this.closeMenu();
+    };
+
+    doDeregister = () => {
         ee.emit("logout");
     };
 
-    getInfo = () => {
-
+    showDisclaimer = () => {
+        this.setState({
+            disclaimerVisible: true,
+        });
     };
 
-    handleAddProfile = async () => {
-        this.props.onCloseSideBar();
+    hideDisclaimer = () => {
+        this.setState({
+            disclaimerVisible: false,
+        });
+    };
+
+    getInfo = () => {
+        this.closeMenu();
+        goToInfo(this.props.componentId);
+    };
+
+    getDisclaimer = () => {
+        return (
+            <View>
+                <Dialog.Container visible={this.state.disclaimerVisible}>
+                    <View style={styles.dialogTitle}>
+                        <Text style={styles.important}>
+                            {translate('Disclaimer.title')}
+                        </Text>
+                        <TouchableOpacity
+                            style={styles.dialogCloseButton}
+                            onPress={this.hideDisclaimer}
+                        >
+                            <CloseMenuIcon width={normalize(30)} height={normalize(30)}/>
+                        </TouchableOpacity>
+                    </View>
+                    <Dialog.Description>
+                        <Text style={styles.dialogMessage}>
+                            {translate('Disclaimer.message')}
+                        </Text>
+                    </Dialog.Description>
+                    <Dialog.Button label={translate('Disclaimer.cancel')} onPress={this.hideDisclaimer} bold={true} />
+                    <Dialog.Button label={translate('Disclaimer.accept')} onPress={this.doDeregister} />
+                </Dialog.Container>
+            </View>
+        );
     };
 
     render() {
         return (
             <View style={styles.sideBar}>
-
                 <View style={styles.accountInfo}>
                     <TouchableOpacity
                         onPress={this.closeMenu}
@@ -97,6 +122,7 @@ export default class SideBar extends Component<{
                     <Text style={styles.itemName}>{translate('SideMenu.info')}</Text>
                 </TouchableOpacity>
 
+                {this.getDisclaimer()}
             </View>
         )
     }
@@ -145,4 +171,26 @@ const styles = StyleSheet.create({
         fontSize: sizes.fonts.small,
         color: colors.light.lightGrey,
     },
+
+    important: {
+        fontSize: sizes.fonts.small,
+        color: colors.light.rejected,
+    },
+    dialogTitle: {
+        position: "absolute",
+        width: "100%",
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        padding: sizes.padding.normal,
+    },
+    dialogMessage: {
+        color: colors.default.grey,
+        padding: sizes.padding.small,
+        fontSize: sizes.fonts.small,
+        textAlign: "left",
+    },
+    dialogCloseButton: {
+        alignSelf: "center",
+    }
 });

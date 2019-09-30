@@ -23,6 +23,8 @@ import { sizes } from '../../constants/sizes'
 
 // @ts-ignore
 import Logo from '../../assets/images/Logo.svg';
+// @ts-ignore
+import Path from '../../assets/images/path2470.svg';
 import {normalize} from "../../utils/size";
 
 const createButton = StyleSheet.create({
@@ -90,6 +92,9 @@ class First extends React.Component<ViewProps> {
             style={styles.body}
           >
             <View style={styles.bodyUpsideBackground}>
+              <Path style={styles.path} width={"130%"} height={"120%"}
+                    scale={2.0}
+                    preserveAspectRatio="xMaxYMid slice" />
               <Logo/>
 
               <Text style={styles.labelNewUser}>{translate('First.labelNewUser')}</Text>
@@ -176,6 +181,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingLeft: 40,
     paddingRight: 40,
+  },
+
+  path: {
+    position: "absolute",
+    width: "200%",
+    height: "120%",
+    left: "-1.19%",
+    right: "19.9%",
+    top: 0,
+    bottom: "-17.14%",
   },
 
 });

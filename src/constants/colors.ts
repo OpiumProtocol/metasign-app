@@ -18,9 +18,10 @@ export const colors = {
     rejected: '#FF5A5A',
     itemSplitter: '#C4C4C4',
     grey: '#4B4B4E',
-    pageContentBackground: '#E5E5E5',
-    pageContentBorder: '#EDEDF0',
+    pageContentBackground: '#f6f6f7',
+    pageContentBorder: '#ededf0',
     lightGrey: '#A5A5A7',
+    link: '#56CCF2',
   },
   [Theme.DARK]: {
     blue: '#4285f4',
