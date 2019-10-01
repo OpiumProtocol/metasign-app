@@ -36,6 +36,7 @@ import {types as t} from "mobx-state-tree";
 import {number} from "mobx-state-tree/dist/types/primitives";
 
 import {reverse, sortBy, assign} from "lodash";
+import engine from '../../utils/engine'
 
 interface RenderItemArgs {
   item: IHistoryData,
@@ -155,11 +156,12 @@ class History extends React.Component<ViewProps, {
     const { data } = this.props.store.history
     const { theme } = this.props.store.settings
     const sideBar = (
-        <SideBar componentId={this.props.componentId}
-                 onCloseSideBar={() => {
-                   this.closeSideBar()
-                 }
-                 }
+        <SideBar
+          componentId={this.props.componentId}
+          onCloseSideBar={() => {
+            this.closeSideBar()
+          }}
+          activeAccount={engine.accounts[0]}
         />
     );
       let dataSortedByTime: any = [];

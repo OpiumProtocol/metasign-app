@@ -14,6 +14,7 @@ import Dialog from "react-native-dialog";
 export default class SideBar extends Component<{
     componentId: any,
     onCloseSideBar: Function,
+    activeAccount: string,
 }, {
     disclaimerVisible: boolean,
 }> {
@@ -33,12 +34,12 @@ export default class SideBar extends Component<{
         this.closeMenu();
     };
 
-    deregisterAccount = () => {
+    unregisterAccount = () => {
         this.showDisclaimer();
         this.closeMenu();
     };
 
-    doDeregister = () => {
+    doUnregister = () => {
         ee.emit("logout");
     };
 
@@ -81,7 +82,7 @@ export default class SideBar extends Component<{
                         </Text>
                     </Dialog.Description>
                     <Dialog.Button label={translate('Disclaimer.cancel')} onPress={this.hideDisclaimer} bold={true} />
-                    <Dialog.Button label={translate('Disclaimer.accept')} onPress={this.doDeregister} />
+                    <Dialog.Button label={translate('Disclaimer.accept')} onPress={this.doUnregister} />
                 </Dialog.Container>
             </View>
         );
@@ -98,7 +99,7 @@ export default class SideBar extends Component<{
                         <CloseMenuIcon width={normalize(30)} height={normalize(30)}/>
                     </TouchableOpacity>
                     <Text style={styles.accountDescription}>{translate('SideMenu.account')}</Text>
-                    <Text style={styles.accountAddress}>{"GA57127881DFR57181028"}</Text>
+                    <Text style={styles.accountAddress}>{this.props.activeAccount}</Text>
                 </View>
 
                 <TouchableOpacity
@@ -112,10 +113,10 @@ export default class SideBar extends Component<{
 
                 <TouchableOpacity
                     style={styles.menuItem}
-                    onPress={this.deregisterAccount}
+                    onPress={this.unregisterAccount}
                 >
-                    <Text style={styles.itemName}>{translate('SideMenu.deregisterAccount')}</Text>
-                    <Text style={styles.itemDescription}>{translate('SideMenu.deregisterAccountDesc')}</Text>
+                    <Text style={styles.itemName}>{translate('SideMenu.unregisterAccount')}</Text>
+                    <Text style={styles.itemDescription}>{translate('SideMenu.unregisterAccountDesc')}</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
