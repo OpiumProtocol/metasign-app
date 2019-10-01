@@ -93,7 +93,7 @@ class Info extends React.Component<ViewProps & ProtocolDataProps> {
 
     return (
       <Fragment>
-        <StatusBar barStyle='dark-content' />
+        <StatusBar barStyle='light-content' />
         <SafeAreaView>
           <View style={styles.container}>
             <ScrollView

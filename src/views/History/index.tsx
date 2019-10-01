@@ -32,6 +32,10 @@ import {normalize} from "../../utils/size";
 import SideMenu from 'react-native-side-menu';
 import SideBar from "../../components/SideBar";
 import ee from "../../utils/events";
+import {types as t} from "mobx-state-tree";
+import {number} from "mobx-state-tree/dist/types/primitives";
+
+import {reverse, sortBy, assign} from "lodash";
 
 interface RenderItemArgs {
   item: IHistoryData,
@@ -87,39 +91,44 @@ class History extends React.Component<ViewProps, {
   renderItem = ({ item }: RenderItemArgs) => {
     const { theme } = this.props.store.settings
     const themedStyle = themedStyles(theme)
-    return (
-      <View style={themedStyle.item} key={item.timestamp}>
-        <Image
-          source={{
-            uri: item.logo
-          }}
-          style={styles.image}
-          resizeMode={'contain'}
-        />
-        <View style={styles.info}>
-          <View style={styles.infoItem}>
-            <TouchableOpacity
-              onPress={this.handleLinkPress(item.domain)}
-            >
-              <Text
-                style={themedStyle.link}
-              >
-                {item.domain}
-              </Text>
-            </TouchableOpacity>
-          </View>
-          <Text style={styles.infoItem}>
-            {moment.unix(item.timestamp).format('DD MMMM, YYYY HH:mm')}
-          </Text>
+      return (
+        <View style={themedStyle.verticalItem}>
+            {
+                item.hook.length ? <Text style={themedStyle.timeGroup} key={item.timestamp}>{item.hook}</Text> : <View/>
+            }
+            <View style={themedStyle.item}>
+                <Image
+                    source={{
+                        uri: item.logo
+                    }}
+                    style={styles.image}
+                    resizeMode={'contain'}
+                />
+                <View style={styles.info}>
+                    <View style={styles.infoItem}>
+                        <TouchableOpacity
+                            onPress={this.handleLinkPress(item.domain)}
+                        >
+                            <Text
+                                style={themedStyle.link}
+                            >
+                                {item.domain}
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+                    <Text style={styles.infoItem}>
+                        {moment.unix(item.timestamp).format('DD MMMM, YYYY HH:mm')}
+                    </Text>
+                </View>
+                <View style={styles.status}>
+                    <Text
+                        style={
+                            item.status == SignatureStatus.confirmed ? themedStyle.confirmed : themedStyle.rejected
+                        }
+                    >{translate(`History.${item.status}`)}</Text>
+                </View>
+            </View>
         </View>
-          <View style={styles.status}>
-              <Text
-                  style={
-                      item.status == SignatureStatus.confirmed ? themedStyle.confirmed : themedStyle.rejected
-                  }
-              >{translate(`History.${item.status}`)}</Text>
-          </View>
-      </View>
     )
   }
 
@@ -135,7 +144,7 @@ class History extends React.Component<ViewProps, {
   renderListEmpty = () => {
     return (
       <View style={styles.listEmpty}>
-        <Text>{translate('History.listEmpty')}</Text>
+        <Text style={styles.emptyListInfo}>{translate('History.listEmpty')}</Text>
       </View>
     )
   }
@@ -153,6 +162,37 @@ class History extends React.Component<ViewProps, {
                  }
         />
     );
+      let dataSortedByTime: any = [];
+      for (var i = 0; i < data.length; i++) {
+          dataSortedByTime.push(assign({}, data[i]));
+      }
+      dataSortedByTime = reverse(sortBy(dataSortedByTime, ["timestamp"]));
+      // const dataSortedByTime = reverse(sortBy(data, ["timestamp"]));
+
+      const timeNow = Number(Date.now()) / 1000;
+      let lastTime = "";
+      const day = 60 * 60 * 24;
+      for (var i = 0; i < data.length; i++) {
+          if (Number(dataSortedByTime[i].timestamp) > timeNow - day) {
+              dataSortedByTime[i].hook = translate("History.today");
+          } else if (Number(dataSortedByTime[i].timestamp) > timeNow - 2 * day) {
+              dataSortedByTime[i].hook = translate("History.yesterday");
+          } else if (Number(dataSortedByTime[i].timestamp) > timeNow - 7 * day) {
+              dataSortedByTime[i].hook = translate("History.week");
+          } else if (Number(dataSortedByTime[i].timestamp) > timeNow - 31 * day) {
+              dataSortedByTime[i].hook = translate("History.month");
+          } else if (Number(dataSortedByTime[i].timestamp) > timeNow - 365 * day) {
+              dataSortedByTime[i].hook = translate("History.year");
+          } else {
+              dataSortedByTime[i].hook = translate("History.all");
+          }
+          if (lastTime === dataSortedByTime[i].hook) {
+              dataSortedByTime[i].hook = "";
+          } else {
+              lastTime = dataSortedByTime[i].hook;
+          }
+      }
+
     return (
         <SideMenu menu={sideBar}
                   isOpen={this.state.isOpenSideBar}
@@ -161,21 +201,23 @@ class History extends React.Component<ViewProps, {
                   onChange={(isOpen: boolean) => this.onChangeSideBarState(isOpen)}
         >
           <Fragment>
-            <StatusBar barStyle='dark-content' />
+            <StatusBar barStyle='light-content' />
             <SafeAreaView>
               <View
                 style={styles.body}
               >
-                <TouchableOpacity
-                    style={styles.scanZone}
-                    onPress={this.handleScanPress}
-                >
-                  <ScanIcon styles={styles.scanIcon}/>
-                  <Text style={styles.description}>{translate('History.description')}</Text>
-                </TouchableOpacity>
+                  <View style={styles.scanZoneBackground}>
+                      <TouchableOpacity
+                          style={styles.scanZone}
+                          onPress={this.handleScanPress}
+                      >
+                          <ScanIcon styles={styles.scanIcon}/>
+                          <Text style={styles.description}>{translate('History.description')}</Text>
+                      </TouchableOpacity>
+                  </View>
                 <FlatList
                   style={styles.list}
-                  data={data}
+                  data={dataSortedByTime}
                   renderItem={this.renderItem}
                   ItemSeparatorComponent={this.renderSeparator}
                   keyExtractor={this.keyExtractor}
@@ -229,9 +271,15 @@ const styles = StyleSheet.create({
     padding: sizes.padding.normal
   },
 
-  scanZone: {
+  scanZoneBackground: {
     backgroundColor: colors.default.white,
     height: normalize(220),
+    width: "100%",
+  },
+
+  scanZone: {
+    backgroundColor: colors.default.white,
+    height: "100%",
     width: "100%",
     display: "flex",
     flexDirection: "column",
@@ -252,6 +300,10 @@ const styles = StyleSheet.create({
     paddingLeft: sizes.padding.small,
     paddingRight: sizes.padding.small,
     textAlign: "center"
+  },
+
+  emptyListInfo: {
+    marginTop: normalize(100),
   },
 })
 
@@ -277,7 +329,15 @@ const themedStyles = (theme: Theme) => StyleSheet.create({
   rejected: {
     fontSize: sizes.fonts.small,
     color: colors[theme].rejected,
-  }
-})
+  },
+    timeGroup: {
+        paddingVertical: sizes.padding.small,
+        paddingHorizontal: sizes.padding.small,
+        color: colors[theme].lightGrey,
+    },
+    verticalItem: {
+        flexDirection: 'column',
+    },
+});
 
 export default inject('store')(observer(History))

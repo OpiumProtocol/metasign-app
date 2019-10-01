@@ -1,5 +1,5 @@
-import React, {Component} from "react";
-import {View, StyleSheet, TouchableOpacity, Text} from "react-native";
+import React, {Component, Fragment} from "react";
+import {View, StyleSheet, TouchableOpacity, Text, StatusBar} from "react-native";
 import {translate} from "../../constants/i18n";
 import {colors} from "../../constants/colors";
 import {normalize} from "../../utils/size";
@@ -8,6 +8,7 @@ import {sizes} from "../../constants/sizes";
 import CloseMenuIcon from "../../assets/images/CloseMenu.svg";
 import {goToInfo} from "../../utils/navigation";
 import ee from "../../utils/events";
+// @ts-ignore
 import Dialog from "react-native-dialog";
 
 export default class SideBar extends Component<{
@@ -62,6 +63,7 @@ export default class SideBar extends Component<{
         return (
             <View>
                 <Dialog.Container visible={this.state.disclaimerVisible}>
+                    <Dialog.Title/>
                     <View style={styles.dialogTitle}>
                         <Text style={styles.important}>
                             {translate('Disclaimer.title')}
@@ -90,6 +92,7 @@ export default class SideBar extends Component<{
             <View style={styles.sideBar}>
                 <View style={styles.accountInfo}>
                     <TouchableOpacity
+                        style={styles.closeButton}
                         onPress={this.closeMenu}
                     >
                         <CloseMenuIcon width={normalize(30)} height={normalize(30)}/>
@@ -192,5 +195,8 @@ const styles = StyleSheet.create({
     },
     dialogCloseButton: {
         alignSelf: "center",
-    }
+    },
+    closeButton: {
+        marginLeft: -5,
+    },
 });

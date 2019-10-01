@@ -24,6 +24,15 @@ import engine from './utils/engine/'
 import TopBarLogo from "./components/TopBarLogo";
 import MenuButton from "./components/MenuButton";
 
+import {setCustomText, setCustomTextInput} from 'react-native-global-props';
+
+const customTextProps = {
+  style: {
+    fontFamily: "Ubuntu",
+  }
+};
+setCustomText(customTextProps);
+setCustomTextInput(customTextProps);
 
 const registerScreens = () => {
   Navigation.registerComponent(Screens.TOPBAR_MENU, () => MenuButton);

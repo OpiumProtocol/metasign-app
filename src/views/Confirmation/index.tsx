@@ -154,7 +154,7 @@ class Confirmation extends React.Component<ViewProps & ProtocolDataProps> {
             customStyle={{
               color: colors.light.grey,
               fontSize: sizes.fonts.small,
-              height: "auto",
+              height: 500,
               borderWidth: 0,
             }}
           seed={
@@ -165,7 +165,7 @@ class Confirmation extends React.Component<ViewProps & ProtocolDataProps> {
     }]
     return (
       <Fragment>
-        <StatusBar barStyle='dark-content' />
+        <StatusBar barStyle='light-content' />
         <SafeAreaView>
           <View style={styles.container}>
             <ScrollView

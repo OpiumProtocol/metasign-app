@@ -48,7 +48,13 @@ export const translations = {
       rejected: 'REJECTED',
       listEmpty: 'The list is empty',
       logout: 'Log out',
-      description: "Tap here to open camera and  scan the QR code on your screen."
+      description: "Tap here to open camera and  scan the QR code on your screen.",
+      today: "Today",
+      yesterday: "Yesterday",
+      week: "Last week",
+      month: "Last month",
+      year: "Last year",
+      all: "All",
     },
     Confirmation: {
       title: 'Confirmation',
@@ -67,14 +73,14 @@ export const translations = {
       info: "More info",
     },
     Info: {
-      title: "Info/Help",
-        description: 'This is what you need to know about metasign, and something more:',
-      section1: "section 1",
-      content1: "This is the test app that can have a longer description This is the test app that can have a longer description Another ",
-      section2: "section 2",
-      content2: "This is the test app that can have a longer description This is the test app that can have a longer description Another  This is the test app that can have a longer description This is the test app that can have a longer description Another ",
-      section3: "name of section",
-      content3: "content of section\ncontent of section\ncontent of section\ncontent of section\n",
+      title: "More info",
+      description: 'This is what you need to know about metasign, and something more:',
+      section1: "More info",
+      content1: "MetaSign can be used to authorize transactions with your Ethereum account and sign a variety of requests. It allows dapps to act on behalf of their users in a secure way. Also users don’t need to hold ETH to pay for their gas or even set up an account.\nFor the best user experience using MetaSign, read the guidlines below.\n\n1.Check wether the browser is using a secure connection (closed lock) and the certificate shown in the browser is valid and has been issued to a party trusted by you.\n2. Keep your phone nearby, the QR-code can be valid for a limited amount of time.\n3. Reflections in your PC screen can make scanning more difficult.\n4. Please make sure your mouse pointer does not cover parts of the QR-code.\n5. Fit the QR within the brackets of your in-app camera view by moving away or towards the screen.\n6. When you have confirmed your request via this app, the webpage will automatically process your request.\n7. When a time-out occurs, press the QR refresh button on the webpage, you can keep your mobile app active.\n8. Please remember to close this app after you used ",
+      section2: "How Meta-Transactions work",
+      content2: "What are meta-transactions\n\nAn easy and secure way to use a blockchain. \nMeta transactions allow apps to abstract away seed phrases and wallet downloads at first. Users can simply use an app and the idea of gas is abstracted away. Native meta transactions let users give orders directly to smart contracts with signed messages. For instance, you could transfer a token that you own to a friend without ever having any ETH to pay for gas.\nEasy comparison is writing a bank check with your signature and let somebody else go to the bank to execute it. Bank will only check your signature and possible instructions that are written on the check, for example \“valid only after 1st of November 2019\"",
+      section3: "Contact us",
+      content3: "Opium.team consist of professional financial traders, developers and world class mathematicians. Our ambition is to change financial sector for the best. Thanks for the technology it become possible with blockchain. \nWe are focusing on decentralised financial products, derivatives, security and user experience. \nContact us and hi@opium.team\n",
     },
     Disclaimer: {
       title: "IMPORTANT!",

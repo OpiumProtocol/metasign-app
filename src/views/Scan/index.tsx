@@ -5,13 +5,14 @@ import {
   StatusBar,
   Vibration,
   Button,
-  Text, TouchableOpacity, View,
+  Text, TouchableOpacity, Image,
 } from 'react-native'
 import { inject, observer } from 'mobx-react'
 import { RNCamera } from 'react-native-camera'
 import isURL from 'validator/lib/isURL'
 // @ts-ignore
-import Subtract from "../../assets/images/Subtract.svg";
+// import Subtract from "../../assets/images/Subtract.svg";
+const Subtract = require("../../assets/images/Subtract.png");
 
 // Utils
 import {goToConfirmation, goToInfo} from '../../utils/navigation'
@@ -74,20 +75,20 @@ class Scan extends React.Component<ViewProps> {
   render() {
     return (
       <Fragment>
-        <StatusBar barStyle='dark-content' />
+        <StatusBar barStyle='light-content' />
         <SafeAreaView>
           <RNCamera
             style={styles.camera}
             captureAudio={false}
             onBarCodeRead={this.handleBarCodeRead}
           >
-            <Subtract style={styles.subtract} width={"100%"} height={"100%"}
-                      preserveAspectRatio="xMidYMid slice"
-            >
-            </Subtract>
-            <Button title={"get random"} onPress={this.getRandom}>
-              <Text>get random</Text>
-            </Button>
+            {/*<Button title={"get random"} onPress={this.getRandom}>*/}
+            {/*  <Text>{translate('Scan.info')}</Text>*/}
+            {/*</Button>*/}
+            {/*<Subtract style={styles.subtract} width={"100%"} height={"100%"}*/}
+            {/*          preserveAspectRatio="xMidYMid slice"*/}
+            {/*>*/}
+            <Image source={Subtract} style={styles.subtract}/>
             <Text style={styles.description}>{translate('Scan.description')}</Text>
 
             <TouchableOpacity

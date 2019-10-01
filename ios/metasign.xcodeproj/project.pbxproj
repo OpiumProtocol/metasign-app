@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* metasignTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* metasignTests.m */; };
+		042CF27B23437A36004CE7EF /* Ubuntu_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 042CF27A23437A36004CE7EF /* Ubuntu_bold.ttf */; };
+		042CF27D23437A42004CE7EF /* Ubuntu.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 042CF27C23437A42004CE7EF /* Ubuntu.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -44,6 +46,8 @@
 		00E356EE1AD99517003FC87E /* metasignTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = metasignTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* metasignTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = metasignTests.m; sourceTree = "<group>"; };
+		042CF27A23437A36004CE7EF /* Ubuntu_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ubuntu_bold.ttf; path = ../assets/fonts/Ubuntu_bold.ttf; sourceTree = "<group>"; };
+		042CF27C23437A42004CE7EF /* Ubuntu.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ubuntu.ttf; path = ../assets/fonts/Ubuntu.ttf; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* metasign.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = metasign.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = metasign/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = metasign/AppDelegate.m; sourceTree = "<group>"; };
@@ -125,6 +129,8 @@
 		13B07FAE1A68108700A75B9A /* metasign */ = {
 			isa = PBXGroup;
 			children = (
+				042CF27C23437A42004CE7EF /* Ubuntu.ttf */,
+				042CF27A23437A36004CE7EF /* Ubuntu_bold.ttf */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -342,6 +348,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				042CF27D23437A42004CE7EF /* Ubuntu.ttf in Resources */,
+				042CF27B23437A36004CE7EF /* Ubuntu_bold.ttf in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

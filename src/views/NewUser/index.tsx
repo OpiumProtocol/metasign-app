@@ -11,7 +11,7 @@ import {
 } from 'react-native'
 import { inject, observer } from 'mobx-react'
 import { observable } from 'mobx'
-import FlashMessage, { showMessage } from 'react-native-flash-message'
+import FlashMessage, {DefaultFlash, positionStyle, showMessage} from 'react-native-flash-message'
 
 // Components
 import Button from '../../components/Button'
@@ -126,7 +126,7 @@ class NewUser extends React.Component<ViewProps> {
               />
             </View>
           </View>
-          <FlashMessage position="top" />
+          <FlashMessage position="top" style={styles.message} />
         </SafeAreaView>
       </Fragment>
     )
@@ -171,6 +171,10 @@ const styles = StyleSheet.create({
     paddingLeft: sizes.padding.small,
     paddingRight: sizes.padding.small,
   },
+
+  message: {
+    marginTop: -20,
+  }
 });
 
 export default inject('store')(observer(NewUser))

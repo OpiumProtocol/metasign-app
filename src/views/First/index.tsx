@@ -86,11 +86,12 @@ class First extends React.Component<ViewProps> {
     const { theme } = this.props.store.settings
     return (
       <Fragment>
-        <StatusBar barStyle='dark-content' />
+        <StatusBar barStyle='light-content' />
         <SafeAreaView>
           <View
             style={styles.body}
           >
+            <View style={styles.statusBar}/>
             <View style={styles.bodyUpsideBackground}>
               <Path style={styles.path} width={"130%"} height={"120%"}
                     scale={2.0}
@@ -189,9 +190,17 @@ const styles = StyleSheet.create({
     height: "120%",
     left: "-1.19%",
     right: "19.9%",
-    top: 0,
+    top: "-5%",
     bottom: "-17.14%",
   },
+
+  statusBar: {
+    position: "absolute",
+    top: -50,
+    height: 50,
+    width: "100%",
+    backgroundColor: colors.light.blue,
+  }
 
 });
 
