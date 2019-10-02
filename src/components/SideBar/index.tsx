@@ -99,7 +99,7 @@ export default class SideBar extends Component<{
                         <CloseMenuIcon width={normalize(30)} height={normalize(30)}/>
                     </TouchableOpacity>
                     <Text style={styles.accountDescription}>{translate('SideMenu.account')}</Text>
-                    <Text style={styles.accountAddress}>{this.props.activeAccount}</Text>
+                    <Text style={styles.accountAddress} numberOfLines={1}>{this.props.activeAccount}</Text>
                 </View>
 
                 <TouchableOpacity
@@ -149,10 +149,12 @@ const styles = StyleSheet.create({
         padding: sizes.padding.normal,
     },
     accountAddress: {
+        paddingTop: sizes.fonts.small,
         fontSize: sizes.fonts.normal,
         color: colors.light.grey,
     },
     accountDescription: {
+        paddingTop: sizes.fonts.small,
         fontSize: sizes.fonts.normal,
         color: colors.default.black,
     },
