@@ -18,7 +18,8 @@ const AppStore = t.
   model('AppStore', {
     settings: t.optional(SettingsStore, {
       theme: Theme.LIGHT,
-      language: Language[RNLocalize.getLocales()[0].languageCode],
+      // language: Language[RNLocalize.getLocales()[0].languageCode],
+      language: Language.en,
       loggedIn: false
     }),
     history: t.optional(HistoryStore, {
