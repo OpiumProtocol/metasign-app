@@ -169,10 +169,10 @@ class History extends React.Component<ViewProps, {
       dataSortedByTime = reverse(sortBy(dataSortedByTime, ["timestamp"]));
       // const dataSortedByTime = reverse(sortBy(data, ["timestamp"]));
 
-      const timeNow = Number(Date.now()) / 1000;
-      let lastTime = "";
       const day = 60 * 60 * 24;
-      for (var i = 0; i < data.length; i++) {
+      const timeNow = Math.floor(Number(moment().local().endOf('day').toDate()) / 1000);
+      let lastTime = "";
+      for (var i = 0; i < dataSortedByTime.length; i++) {
           if (Number(dataSortedByTime[i].timestamp) > timeNow - day) {
               dataSortedByTime[i].hook = translate("History.today");
           } else if (Number(dataSortedByTime[i].timestamp) > timeNow - 2 * day) {
