@@ -24,8 +24,7 @@ class Engine {
       new KeyringController({ encryptor }, initialState.KeyringController)
     ])
 
-    // TODO: change salt
-    SecureKeychain.init('cool salt')
+    SecureKeychain.init()
 
     this.initialized = true
   }

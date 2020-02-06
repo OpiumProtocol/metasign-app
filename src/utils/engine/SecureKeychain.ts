@@ -1,4 +1,6 @@
 import * as Keychain from 'react-native-keychain'
+// @ts-ignore
+import { KEYCHAIN_SALT } from 'react-native-dotenv'
 
 import encryptor from './Encryptor'
 
@@ -25,8 +27,8 @@ class SecureKeychain {
 
   ACCESS_CONTROL = Keychain.ACCESS_CONTROL
   
-  init(salt: string) {
-    this.helper = new EncryptionHelper(salt)
+  init() {
+    this.helper = new EncryptionHelper(KEYCHAIN_SALT)
     this.initialized = true
     this.defaultOptions = {
       service: 'org.metasign.app',
