@@ -193,7 +193,7 @@ class Confirmation extends React.Component<ViewProps & ProtocolDataProps> {
                 />
               </View>
               <Text style={styles.descriptionTitle}>{translate('Confirmation.description')}</Text>
-              <Text style={styles.description}>{data.domain}</Text>
+              <Text style={styles.description}>{data.description}</Text>
               <Accordion
                 activeSections={this.state.activeSections}
                 sections={SECTIONS}
