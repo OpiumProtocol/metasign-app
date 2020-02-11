@@ -52,37 +52,22 @@ class Engine {
     const keyringController = <KeyringController> this.controller.context.KeyringController
     await keyringController.createNewVaultAndRestore(password, seed)
 
-    const biometryType = await SecureKeychain.getSupportedBiometryType()
-    const biometryChoice = true
+    const biometryType: string | null = await SecureKeychain.getSupportedBiometryType()
 
-    if (biometryType) {
-      console.warn('HAS biometryType', biometryType)
-      const authOptions = {
-        accessControl: biometryChoice
-          ? SecureKeychain.ACCESS_CONTROL.BIOMETRY_CURRENT_SET_OR_DEVICE_PASSCODE
-          : SecureKeychain.ACCESS_CONTROL.DEVICE_PASSCODE
-      }
+    console.warn('Available biometryType:', biometryType)
+    const authOptions = {
+      accessControl: biometryType
+        ? SecureKeychain.ACCESS_CONTROL.BIOMETRY_CURRENT_SET_OR_DEVICE_PASSCODE
+        : SecureKeychain.ACCESS_CONTROL.DEVICE_PASSCODE
+    }
 
-      await SecureKeychain.setGenericPassword('metasign-user', password, authOptions)
+    await SecureKeychain.setGenericPassword('metasign-user', password, authOptions)
 
-      if (!biometryChoice) {
-        console.warn('HAS NO biometryChoice')
-        console.warn('removeItem(biometryChoice)')
-        // await AsyncStorage.removeItem('@MetaMask:biometryChoice');
-      } else {
-        console.warn('HAS biometryChoice')
-        // If the user enables biometrics, we're trying to read the password
-        // immediately so we get the permission prompt
-        if (Platform.OS === 'ios') {
-          console.warn('Getting generic password')
-          await SecureKeychain.getGenericPassword()
-        }
-        console.warn('setItem(biometryChoice, biometryType)')
-        // await AsyncStorage.setItem('@MetaMask:biometryChoice', this.state.biometryType);
-      }
-    } else {
-      console.warn('HAS NO biometryType')
-      await SecureKeychain.setGenericPassword('metamask-user', password)
+    // If the user enables biometrics, we're trying to read the password
+    // immediately so we get the permission prompt
+    if (Platform.OS === 'ios') {
+      console.warn('Getting generic password')
+      await SecureKeychain.getGenericPassword()
     }
 
     this.accounts = await keyringController.getAccounts()
